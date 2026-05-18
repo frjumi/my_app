@@ -1180,3 +1180,945 @@ Processing by Rails::InfoController#routes as */*
 Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 9841)
 
 
+Started GET "/users" for 127.0.0.1 at 2026-05-18 21:59:45 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:13
+  Rendered users/index.html.haml within layouts/application (Duration: 81.7ms | Allocations: 23235)
+  Rendered shared/_header.html.haml (Duration: 4.4ms | Allocations: 5880)
+  Rendered shared/_footer.html.haml (Duration: 4.4ms | Allocations: 4622)
+  Rendered layout layouts/application.html.haml (Duration: 2990.4ms | Allocations: 578279)
+Completed 200 OK in 3045ms (Views: 2970.0ms | ActiveRecord: 27.2ms | Allocations: 590776)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["email", "admin@example.com"], ["created_at", "2026-05-18 19:06:25.250813"], ["updated_at", "2026-05-18 19:06:25.250813"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test User"], ["email", "test@example.com"], ["created_at", "2026-05-18 19:06:25.259324"], ["updated_at", "2026-05-18 19:06:25.259324"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTheme Delete All (0.7ms)[0m  [1m[31mDELETE FROM "themes"[0m
+  [1m[36mImage Delete All (0.2ms)[0m  [1m[31mDELETE FROM "images"[0m
+  [1m[36mValue Delete All (0.2ms)[0m  [1m[31mDELETE FROM "values"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.7ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "---"], ["qty_items", nil], ["created_at", "2026-05-18 19:06:25.305163"], ["updated_at", "2026-05-18 19:06:25.305163"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.4ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["qty_items", nil], ["created_at", "2026-05-18 19:06:25.309755"], ["updated_at", "2026-05-18 19:06:25.309755"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.0ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:06:25.313848"], ["updated_at", "2026-05-18 19:06:25.313848"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.5ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:06:25.317301"], ["updated_at", "2026-05-18 19:06:25.317301"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Create (0.9ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Базовое превращение"], ["file", "Блум_База.jpeg"], ["ave_value", 0.0], ["theme_id", 2], ["created_at", "2026-05-18 19:06:25.355604"], ["updated_at", "2026-05-18 19:06:25.355604"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Create (0.2ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Чармикс"], ["file", "Блум_Чармикс.jpeg"], ["ave_value", 0.0], ["theme_id", 2], ["created_at", "2026-05-18 19:06:25.361440"], ["updated_at", "2026-05-18 19:06:25.361440"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mImage Create (0.2ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Энчантикс"], ["file", "Блум_Энчантикс.jpeg"], ["ave_value", 0.0], ["theme_id", 3], ["created_at", "2026-05-18 19:06:25.366620"], ["updated_at", "2026-05-18 19:06:25.366620"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Create (0.3ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Беливикс"], ["file", "Блум_Беливикс.jpeg"], ["ave_value", 0.0], ["theme_id", 4], ["created_at", "2026-05-18 19:06:25.372602"], ["updated_at", "2026-05-18 19:06:25.372602"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTheme Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "themes"[0m
+  [1m[36mImage Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mValue Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:06:39 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 11.9ms | Allocations: 11845)
+  Rendered shared/_header.html.haml (Duration: 4.2ms | Allocations: 5869)
+  Rendered shared/_footer.html.haml (Duration: 4.6ms | Allocations: 4644)
+  Rendered layout layouts/application.html.haml (Duration: 378.3ms | Allocations: 123582)
+Completed 200 OK in 403ms (Views: 384.0ms | ActiveRecord: 0.0ms | Allocations: 128986)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:06:46 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images"):
+  
+Started GET "/users" for 127.0.0.1 at 2026-05-18 22:08:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:13
+  Rendered users/index.html.haml within layouts/application (Duration: 57.4ms | Allocations: 23431)
+  Rendered shared/_header.html.haml (Duration: 4.7ms | Allocations: 5880)
+  Rendered shared/_footer.html.haml (Duration: 5.6ms | Allocations: 4622)
+  Rendered layout layouts/application.html.haml (Duration: 381.4ms | Allocations: 135091)
+Completed 200 OK in 444ms (Views: 373.6ms | ActiveRecord: 12.4ms | Allocations: 147561)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:08:57 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (2.5ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 47.7ms | Allocations: 13446)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 69.1ms | Allocations: 37862)
+Completed 200 OK in 82ms (Views: 64.2ms | ActiveRecord: 5.8ms | Allocations: 40175)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2026-05-18 22:09:00 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 6.9ms | Allocations: 6091)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 36.1ms | Allocations: 30428)
+Completed 200 OK in 44ms (Views: 37.0ms | ActiveRecord: 0.7ms | Allocations: 35347)
+
+
+Started GET "/images/2" for 127.0.0.1 at 2026-05-18 22:09:05 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 0.4ms | Allocations: 78)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 33.2ms | Allocations: 23875)
+Completed 200 OK in 37ms (Views: 33.8ms | ActiveRecord: 0.4ms | Allocations: 24723)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:10:59 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 55.1ms | Allocations: 25367)
+  Rendered shared/_header.html.haml (Duration: 20.4ms | Allocations: 7200)
+  Rendered shared/_footer.html.haml (Duration: 12.6ms | Allocations: 4622)
+  Rendered layout layouts/application.html.haml (Duration: 370.0ms | Allocations: 138341)
+Completed 200 OK in 412ms (Views: 364.7ms | ActiveRecord: 10.9ms | Allocations: 151412)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:11:01 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 17.1ms | Allocations: 5111)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 38.0ms | Allocations: 28605)
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.0ms | Allocations: 29266)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:11:02 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 2.8ms | Allocations: 864)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 44.0ms | Allocations: 24326)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.7ms | Allocations: 24750)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 22:11:03 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (0.8ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 21.6ms | Allocations: 11383)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 43.7ms | Allocations: 34875)
+Completed 200 OK in 50ms (Views: 40.7ms | ActiveRecord: 3.8ms | Allocations: 36588)
+
+
+Started GET "/themes/2" for 127.0.0.1 at 2026-05-18 22:11:06 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 5.7ms | Allocations: 4901)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 36.0ms | Allocations: 28326)
+Completed 200 OK in 50ms (Views: 36.7ms | ActiveRecord: 0.6ms | Allocations: 33228)
+
+
+Started GET "/themes/1" for 127.0.0.1 at 2026-05-18 22:11:08 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTheme Load (0.5ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 0.4ms | Allocations: 73)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 29.8ms | Allocations: 23495)
+Completed 200 OK in 34ms (Views: 30.5ms | ActiveRecord: 0.5ms | Allocations: 24307)
+
+
+Started GET "/themes/2" for 127.0.0.1 at 2026-05-18 22:11:10 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 0.3ms | Allocations: 74)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 30.2ms | Allocations: 23522)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 0.3ms | Allocations: 24331)
+
+
+Started GET "/values" for 127.0.0.1 at 2026-05-18 22:11:13 +0300
+Processing by ValuesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering values/index.html.haml within layouts/application
+  [1m[36mValue Load (0.9ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  ↳ app/views/values/index.html.haml:14
+  Rendered values/index.html.haml within layouts/application (Duration: 10.6ms | Allocations: 8229)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 38.0ms | Allocations: 31690)
+Completed 200 OK in 45ms (Views: 38.1ms | ActiveRecord: 0.9ms | Allocations: 33601)
+
+
+Started GET "/main/about" for 127.0.0.1 at 2026-05-18 22:11:15 +0300
+Processing by MainController#about as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 4.5ms | Allocations: 2857)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 150)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 33.7ms | Allocations: 26349)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms | Allocations: 26818)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:11:19 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.5ms | Allocations: 23538)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 23940)
+
+
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."theme_id" = $1 /* loading for pp */ LIMIT $2[0m  [["theme_id", 2], ["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mValue Load (0.3ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 /* loading for pp */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" ORDER BY "images"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mValue Load (0.3ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."image_id" = $1 /* loading for pp */ LIMIT $2[0m  [["image_id", 1], ["LIMIT", 11]]
+  [1m[36mValue Average (1.2ms)[0m  [1m[34mSELECT AVG("values"."value") FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1 /* loading for pp */ LIMIT $2[0m  [["theme_id", 2], ["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:15:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 12.4ms | Allocations: 11845)
+  Rendered shared/_header.html.haml (Duration: 5.4ms | Allocations: 7189)
+  Rendered shared/_footer.html.haml (Duration: 4.6ms | Allocations: 4644)
+  Rendered layout layouts/application.html.haml (Duration: 358.7ms | Allocations: 124891)
+Completed 200 OK in 390ms (Views: 363.9ms | ActiveRecord: 0.0ms | Allocations: 130298)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:15:45 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 22.6ms | Allocations: 23568)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms | Allocations: 23982)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 22:15:49 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (0.6ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 44.6ms | Allocations: 16610)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 63.4ms | Allocations: 40352)
+Completed 200 OK in 100ms (Views: 54.3ms | ActiveRecord: 9.8ms | Allocations: 48065)
+
+
+Started GET "/themes/2" for 127.0.0.1 at 2026-05-18 22:15:51 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTheme Load (0.7ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 15.3ms | Allocations: 4909)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 39.2ms | Allocations: 28634)
+Completed 200 OK in 53ms (Views: 39.7ms | ActiveRecord: 1.0ms | Allocations: 33544)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:15:54 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 22.7ms | Allocations: 13424)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 46.7ms | Allocations: 37133)
+Completed 200 OK in 56ms (Views: 44.7ms | ActiveRecord: 3.2ms | Allocations: 39534)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2026-05-18 22:15:56 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 6.4ms | Allocations: 6055)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 34.1ms | Allocations: 29581)
+Completed 200 OK in 44ms (Views: 35.0ms | ActiveRecord: 0.4ms | Allocations: 31839)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 22:16:03 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (1.1ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 4.8ms | Allocations: 838)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 69.3ms | Allocations: 24402)
+Completed 200 OK in 71ms (Views: 69.2ms | ActiveRecord: 1.1ms | Allocations: 24822)
+
+
+Started GET "/themes/2" for 127.0.0.1 at 2026-05-18 22:16:05 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTheme Load (0.5ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 0.4ms | Allocations: 74)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 27.9ms | Allocations: 23552)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.5ms | Allocations: 24373)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:16:07 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 4.2ms | Allocations: 856)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 30.6ms | Allocations: 24410)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.7ms | Allocations: 24825)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:16:13 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 3.4ms | Allocations: 856)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 24.6ms | Allocations: 24280)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.7ms | Allocations: 24706)
+
+
+Started GET "/values" for 127.0.0.1 at 2026-05-18 22:16:14 +0300
+Processing by ValuesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering values/index.html.haml within layouts/application
+  [1m[36mValue Load (0.6ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  ↳ app/views/values/index.html.haml:14
+  Rendered values/index.html.haml within layouts/application (Duration: 6.3ms | Allocations: 8168)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 24.2ms | Allocations: 31909)
+Completed 200 OK in 29ms (Views: 24.2ms | ActiveRecord: 0.6ms | Allocations: 33826)
+
+
+Started GET "/main/contacts" for 127.0.0.1 at 2026-05-18 22:16:19 +0300
+Processing by MainController#contacts as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/contacts.html.haml within layouts/application
+  Rendered main/contacts.html.haml within layouts/application (Duration: 4.5ms | Allocations: 3302)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.4ms | Allocations: 26728)
+Completed 200 OK in 40ms (Views: 33.3ms | ActiveRecord: 0.0ms | Allocations: 27188)
+
+
+Started GET "/main/about" for 127.0.0.1 at 2026-05-18 22:16:20 +0300
+Processing by MainController#about as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 3.6ms | Allocations: 2852)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 150)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.6ms | Allocations: 26295)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 26776)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:16:21 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 5.3ms | Allocations: 857)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 38.3ms | Allocations: 24336)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.9ms | Allocations: 24751)
+
+
+Started GET "/images/2" for 127.0.0.1 at 2026-05-18 22:16:27 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 0.5ms | Allocations: 78)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 30.4ms | Allocations: 23547)
+Completed 200 OK in 34ms (Views: 31.0ms | ActiveRecord: 0.3ms | Allocations: 24393)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["email", "admin@example.com"], ["created_at", "2026-05-18 19:17:05.103675"], ["updated_at", "2026-05-18 19:17:05.103675"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test User"], ["email", "test@example.com"], ["created_at", "2026-05-18 19:17:05.108977"], ["updated_at", "2026-05-18 19:17:05.108977"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTheme Delete All (1.1ms)[0m  [1m[31mDELETE FROM "themes"[0m
+  [1m[36mImage Delete All (0.9ms)[0m  [1m[31mDELETE FROM "images"[0m
+  [1m[36mValue Delete All (0.2ms)[0m  [1m[31mDELETE FROM "values"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "---"], ["qty_items", nil], ["created_at", "2026-05-18 19:17:05.145285"], ["updated_at", "2026-05-18 19:17:05.145285"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (11.8ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["qty_items", nil], ["created_at", "2026-05-18 19:17:05.149262"], ["updated_at", "2026-05-18 19:17:05.149262"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.1ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:17:05.164029"], ["updated_at", "2026-05-18 19:17:05.164029"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.6ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:17:05.167831"], ["updated_at", "2026-05-18 19:17:05.167831"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTheme Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "themes"[0m
+  [1m[36mImage Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mValue Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:17:20 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 40.5ms | Allocations: 19144)
+  Rendered shared/_header.html.haml (Duration: 5.4ms | Allocations: 7200)
+  Rendered shared/_footer.html.haml (Duration: 4.2ms | Allocations: 4622)
+  Rendered layout layouts/application.html.haml (Duration: 431.2ms | Allocations: 132206)
+Completed 200 OK in 475ms (Views: 428.6ms | ActiveRecord: 7.5ms | Allocations: 145375)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:17:22 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 2.2ms | Allocations: 448)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 45.2ms | Allocations: 24112)
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.7ms | Allocations: 24548)
+
+
+Started GET "/main/about" for 127.0.0.1 at 2026-05-18 22:17:24 +0300
+Processing by MainController#about as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 5.0ms | Allocations: 2858)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 156)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.5ms | Allocations: 26578)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.0ms | Allocations: 27227)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:17:24 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 2.4ms | Allocations: 447)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 47.0ms | Allocations: 24138)
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 1.0ms | Allocations: 24565)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 22:17:27 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (2.0ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 30.9ms | Allocations: 12944)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 51.5ms | Allocations: 36496)
+Completed 200 OK in 57ms (Views: 43.1ms | ActiveRecord: 9.2ms | Allocations: 38203)
+
+
+Started GET "/themes/6" for 127.0.0.1 at 2026-05-18 22:17:29 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 5.3ms | Allocations: 4898)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 39.3ms | Allocations: 28639)
+Completed 200 OK in 52ms (Views: 39.8ms | ActiveRecord: 0.7ms | Allocations: 33528)
+
+
+Started GET "/values" for 127.0.0.1 at 2026-05-18 22:17:31 +0300
+Processing by ValuesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering values/index.html.haml within layouts/application
+  [1m[36mValue Load (0.9ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  ↳ app/views/values/index.html.haml:14
+  Rendered values/index.html.haml within layouts/application (Duration: 8.5ms | Allocations: 8229)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 38.6ms | Allocations: 31717)
+Completed 200 OK in 45ms (Views: 38.5ms | ActiveRecord: 0.9ms | Allocations: 33646)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 22:17:32 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (0.9ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 3.4ms | Allocations: 838)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 33.1ms | Allocations: 24583)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 0.9ms | Allocations: 25003)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:17:33 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 5.5ms | Allocations: 442)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 36.5ms | Allocations: 23887)
+Completed 200 OK in 39ms (Views: 35.2ms | ActiveRecord: 2.0ms | Allocations: 24294)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2026-05-18 22:17:39 +0300
+Processing by ImagesController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/_form.html.haml (Duration: 15.1ms | Allocations: 10684)
+  Rendered images/new.html.haml within layouts/application (Duration: 22.1ms | Allocations: 14160)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 136)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 40.6ms | Allocations: 37902)
+Completed 200 OK in 70ms (Views: 41.3ms | ActiveRecord: 11.9ms | Allocations: 42616)
+
+
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" ORDER BY "images"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mImage Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (0.5ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 5]]
+  [1m[36mTheme Destroy (0.3ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 5]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.0ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 6]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 6]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.1ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 7]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 7]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.1ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 8]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 8]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.1ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "---"], ["qty_items", nil], ["created_at", "2026-05-18 19:22:56.768164"], ["updated_at", "2026-05-18 19:22:56.768164"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.8ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["qty_items", nil], ["created_at", "2026-05-18 19:22:56.782087"], ["updated_at", "2026-05-18 19:22:56.782087"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:22:56.786815"], ["updated_at", "2026-05-18 19:22:56.786815"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:22:56.790727"], ["updated_at", "2026-05-18 19:22:56.790727"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "expert@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Эксперт Фролова"], ["email", "expert@example.com"], ["created_at", "2026-05-18 19:22:56.817880"], ["updated_at", "2026-05-18 19:22:56.817880"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTheme Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "themes"[0m
+  [1m[36mImage Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mValue Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (0.4ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 9]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 9]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.0ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 10]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 10]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.0ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 11]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 11]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.0ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 12]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 12]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mValue Load (0.2ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.4ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "---"], ["qty_items", nil], ["created_at", "2026-05-18 19:24:15.233794"], ["updated_at", "2026-05-18 19:24:15.233794"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.5ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["qty_items", nil], ["created_at", "2026-05-18 19:24:15.238687"], ["updated_at", "2026-05-18 19:24:15.238687"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.0ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:24:15.242863"], ["updated_at", "2026-05-18 19:24:15.242863"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.4ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:24:15.246742"], ["updated_at", "2026-05-18 19:24:15.246742"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "expert@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Эксперт Фролова"], ["email", "expert@example.com"], ["created_at", "2026-05-18 19:24:15.283734"], ["updated_at", "2026-05-18 19:24:15.283734"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTheme Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "themes"[0m
+  [1m[36mImage Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mValue Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" ORDER BY "images"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" ORDER BY "images"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" ORDER BY "themes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTheme Load (0.6ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (0.5ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 13]]
+  [1m[36mTheme Destroy (0.4ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 13]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.0ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 14]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 14]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (1.0ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 15]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 15]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update All (0.9ms)[0m  [1m[33mUPDATE "images" SET "theme_id" = $1 WHERE "images"."theme_id" = $2[0m  [["theme_id", nil], ["theme_id", 16]]
+  [1m[36mTheme Destroy (0.2ms)[0m  [1m[31mDELETE FROM "themes" WHERE "themes"."id" = $1[0m  [["id", 16]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mValue Load (0.3ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mValue Load (0.3ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "---"], ["qty_items", nil], ["created_at", "2026-05-18 19:30:14.988522"], ["updated_at", "2026-05-18 19:30:14.988522"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (2.7ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["qty_items", nil], ["created_at", "2026-05-18 19:30:14.993547"], ["updated_at", "2026-05-18 19:30:14.993547"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:30:14.999490"], ["updated_at", "2026-05-18 19:30:14.999490"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Create (1.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "qty_items", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["qty_items", nil], ["created_at", "2026-05-18 19:30:15.005533"], ["updated_at", "2026-05-18 19:30:15.005533"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Create (1.3ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Базовое превращение"], ["file", "Блум_База.jpeg"], ["ave_value", 0.0], ["theme_id", 2], ["created_at", "2026-05-18 19:30:15.020432"], ["updated_at", "2026-05-18 19:30:15.020432"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Create (0.3ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Чармикс"], ["file", "Блум_Чармикс.jpeg"], ["ave_value", 0.0], ["theme_id", 2], ["created_at", "2026-05-18 19:30:15.027747"], ["updated_at", "2026-05-18 19:30:15.027747"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.2ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Create (0.3ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Энчантикс"], ["file", "Блум_Энчантикс.jpeg"], ["ave_value", 0.0], ["theme_id", 2], ["created_at", "2026-05-18 19:30:15.033179"], ["updated_at", "2026-05-18 19:30:15.033179"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTheme Load (0.5ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("name", "file", "ave_value", "theme_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Блум. Беливикс"], ["file", "Блум_Беливикс.jpeg"], ["ave_value", 0.0], ["theme_id", 4], ["created_at", "2026-05-18 19:30:15.062988"], ["updated_at", "2026-05-18 19:30:15.062988"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "expert@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Эксперт Фролова"], ["email", "expert@example.com"], ["created_at", "2026-05-18 19:30:15.069282"], ["updated_at", "2026-05-18 19:30:15.069282"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTheme Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "themes"[0m
+  [1m[36mImage Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:30:32 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 56.0ms | Allocations: 25365)
+  Rendered shared/_header.html.haml (Duration: 25.5ms | Allocations: 7200)
+  Rendered shared/_footer.html.haml (Duration: 14.7ms | Allocations: 4622)
+  Rendered layout layouts/application.html.haml (Duration: 365.5ms | Allocations: 138331)
+Completed 200 OK in 402ms (Views: 358.9ms | ActiveRecord: 10.6ms | Allocations: 151509)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2026-05-18 22:30:37 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 9.3ms | Allocations: 6087)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 36.9ms | Allocations: 29572)
+Completed 200 OK in 54ms (Views: 37.4ms | ActiveRecord: 0.6ms | Allocations: 34492)
+
+
+Started GET "/images/2" for 127.0.0.1 at 2026-05-18 22:30:43 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 0.3ms | Allocations: 78)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 40.1ms | Allocations: 23516)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.3ms | Allocations: 24358)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 22:30:45 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (0.8ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 20.7ms | Allocations: 11384)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 40.1ms | Allocations: 34876)
+Completed 200 OK in 44ms (Views: 38.3ms | ActiveRecord: 2.7ms | Allocations: 36610)
+
+
+Started GET "/themes/2" for 127.0.0.1 at 2026-05-18 22:30:47 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 6.9ms | Allocations: 4862)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 40.6ms | Allocations: 28287)
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 0.4ms | Allocations: 30565)
+
+
+Started GET "/themes/3" for 127.0.0.1 at 2026-05-18 22:30:50 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 0.3ms | Allocations: 74)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 30.1ms | Allocations: 23496)
+Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.4ms | Allocations: 24304)
+
+
+Started GET "/themes/2" for 127.0.0.1 at 2026-05-18 22:31:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 24.0ms | Allocations: 11674)
+  Rendered shared/_header.html.haml (Duration: 6.2ms | Allocations: 7198)
+  Rendered shared/_footer.html.haml (Duration: 5.6ms | Allocations: 4617)
+  Rendered layout layouts/application.html.haml (Duration: 355.3ms | Allocations: 124635)
+Completed 200 OK in 463ms (Views: 362.9ms | ActiveRecord: 9.5ms | Allocations: 149895)
+
+
