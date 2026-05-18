@@ -15,10 +15,10 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
+#gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+#gem "turbo-rails"
 gem 'turbolinks', '~> 5.2'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
@@ -58,16 +58,17 @@ gem 'font-awesome-sass', '~> 6.0'
 # Пагинация
 gem 'kaminari'
 
+gem 'sassc-rails'
+gem 'jquery-ui-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'haml-rails', '~> 2.0'
   # Sass-компилятор (для стилей)
-  gem 'sassc-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'jquery-ui-rails'
 end
 
 group :development do

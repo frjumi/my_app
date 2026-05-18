@@ -571,3 +571,82 @@ Processing by MainController#index as HTML
 Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 13601)
 
 
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:06:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 26.2ms | Allocations: 11879)
+  Rendered shared/_header.html.haml (Duration: 4.3ms | Allocations: 5893)
+  Rendered shared/_footer.html.haml (Duration: 3.6ms | Allocations: 4672)
+  Rendered layout layouts/application.html.haml (Duration: 236.6ms | Allocations: 93004)
+Completed 200 OK in 256ms (Views: 241.2ms | ActiveRecord: 0.0ms | Allocations: 98534)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:07:01 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 30.6ms | Allocations: 13205)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 13654)
+
+
+Started GET "/main/help" for 127.0.0.1 at 2026-05-18 20:07:03 +0300
+Processing by MainController#help as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/help.html.haml within layouts/application
+  Rendered main/help.html.haml within layouts/application (Duration: 5.0ms | Allocations: 3345)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 20.6ms | Allocations: 16492)
+Completed 200 OK in 28ms (Views: 21.5ms | ActiveRecord: 0.0ms | Allocations: 16989)
+
+
+Started GET "/main/contacts" for 127.0.0.1 at 2026-05-18 20:07:07 +0300
+Processing by MainController#contacts as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/contacts.html.haml within layouts/application
+  Rendered main/contacts.html.haml within layouts/application (Duration: 4.6ms | Allocations: 3333)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 18.7ms | Allocations: 16405)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 16891)
+
+
+Started GET "/main/about" for 127.0.0.1 at 2026-05-18 20:07:08 +0300
+Processing by MainController#about as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 4.0ms | Allocations: 2883)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 102)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 21.5ms | Allocations: 15970)
+Completed 200 OK in 29ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 16492)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:07:11 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 15.3ms | Allocations: 13163)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 13593)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:07:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 11.6ms | Allocations: 11879)
+  Rendered shared/_header.html.haml (Duration: 20.2ms | Allocations: 5896)
+  Rendered shared/_footer.html.haml (Duration: 6.5ms | Allocations: 4675)
+  Rendered layout layouts/application.html.haml (Duration: 236.2ms | Allocations: 93019)
+Completed 200 OK in 248ms (Views: 239.3ms | ActiveRecord: 0.0ms | Allocations: 98535)
+
+
