@@ -1108,3 +1108,75 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 363ms (Views: 306.2ms | ActiveRecord: 9.8ms | Allocations: 139434)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateThemes (20260518181505)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "themes" ("id" bigserial primary key, "name" character varying, "qty_items" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260518181505') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImages (20260518181639)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "name" character varying, "file" character varying, "ave_value" float, "theme_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260518181639') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateValues (20260518181652)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "values" ("id" bigserial primary key, "user_id" integer, "image_id" integer, "value" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260518181652') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2026-05-18 21:20:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 10.5ms | Allocations: 11845)
+  Rendered shared/_header.html.haml (Duration: 6.1ms | Allocations: 5869)
+  Rendered shared/_footer.html.haml (Duration: 13.5ms | Allocations: 4651)
+  Rendered layout layouts/application.html.haml (Duration: 592.2ms | Allocations: 136446)
+Completed 200 OK in 613ms (Views: 597.5ms | ActiveRecord: 0.0ms | Allocations: 141872)
+
+
+Started GET "/values" for 127.0.0.1 at 2026-05-18 21:21:06 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/values"):
+  
+Started GET "/value" for 127.0.0.1 at 2026-05-18 21:35:54 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/value"):
+  
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 21:36:07 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (1.5ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 41.8ms | Allocations: 11338)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 65.5ms | Allocations: 34522)
+Completed 200 OK in 90ms (Views: 58.5ms | ActiveRecord: 7.7ms | Allocations: 42548)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 21:36:19 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images"):
+  
+Started GET "/rails/info/routes?query=im" for 127.0.0.1 at 2026-05-18 21:36:49 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"im"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 21909)
+
+
+Started GET "/rails/info/routes?query=ima" for 127.0.0.1 at 2026-05-18 21:36:52 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"ima"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 9841)
+
+
