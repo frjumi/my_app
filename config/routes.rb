@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get 'main/help'
   get 'main/contacts'
   get 'main/about'
-  root 'main#index'
+  get 'work', to: 'work#index', as: 'work'
+  get 'choose_theme', to: 'work#choose_theme', as: 'choose_theme'
+  post 'display_theme', to: 'work#display_theme', as: 'display_theme'
+  root 'work#index'
+  #root 'main#index'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

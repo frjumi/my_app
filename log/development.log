@@ -2122,3 +2122,351 @@ Processing by ThemesController#show as HTML
 Completed 200 OK in 463ms (Views: 362.9ms | ActiveRecord: 9.5ms | Allocations: 149895)
 
 
+Started GET "/themes/2" for 127.0.0.1 at 2026-05-18 22:45:04 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTheme Load (2.1ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 13.8ms | Allocations: 11674)
+  Rendered shared/_header.html.haml (Duration: 5.2ms | Allocations: 7198)
+  Rendered shared/_footer.html.haml (Duration: 6.4ms | Allocations: 4617)
+  Rendered layout layouts/application.html.haml (Duration: 625.4ms | Allocations: 132096)
+Completed 200 OK in 763ms (Views: 630.9ms | ActiveRecord: 18.5ms | Allocations: 157425)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:45:08 +0300
+Processing by WorkController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/index.html.haml within layouts/application (Duration: 5.2ms | Allocations: 2853)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 156)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 31.2ms | Allocations: 26328)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.0ms | Allocations: 26997)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 22:45:16 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (1.3ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 23.9ms | Allocations: 13515)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 52.3ms | Allocations: 37789)
+Completed 200 OK in 63ms (Views: 50.3ms | ActiveRecord: 3.9ms | Allocations: 40237)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 22:45:18 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (0.7ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 21.3ms | Allocations: 8088)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 52.2ms | Allocations: 31615)
+Completed 200 OK in 55ms (Views: 52.4ms | ActiveRecord: 0.7ms | Allocations: 32133)
+
+
+Started GET "/values" for 127.0.0.1 at 2026-05-18 22:45:18 +0300
+Processing by ValuesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering values/index.html.haml within layouts/application
+  [1m[36mValue Load (0.8ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  ↳ app/views/values/index.html.haml:14
+  Rendered values/index.html.haml within layouts/application (Duration: 8.5ms | Allocations: 8219)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 29.2ms | Allocations: 31657)
+Completed 200 OK in 38ms (Views: 29.7ms | ActiveRecord: 0.8ms | Allocations: 33598)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:54:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkController#index as HTML
+  [1m[36mImage Count (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:6:in `index'
+  [1m[36mValue Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 3.1ms | Allocations: 3589)
+  Rendered work/index.html.haml within layouts/application (Duration: 272.5ms | Allocations: 92835)
+  Rendered shared/_header.html.haml (Duration: 5.6ms | Allocations: 7171)
+  Rendered shared/_footer.html.haml (Duration: 13.4ms | Allocations: 4551)
+  Rendered layout layouts/application.html.haml (Duration: 324.4ms | Allocations: 138113)
+Completed 200 OK in 470ms (Views: 329.9ms | ActiveRecord: 16.3ms | Allocations: 157988)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 22:58:47 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkController#index as HTML
+  [1m[36mImage Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:6:in `index'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 3.9ms | Allocations: 3589)
+  Rendered work/index.html.haml within layouts/application (Duration: 752.7ms | Allocations: 206326)
+  Rendered shared/_header.html.haml (Duration: 6.8ms | Allocations: 7171)
+  Rendered shared/_footer.html.haml (Duration: 5.0ms | Allocations: 4540)
+  Rendered layout layouts/application.html.haml (Duration: 791.7ms | Allocations: 251541)
+Completed 200 OK in 880ms (Views: 795.9ms | ActiveRecord: 9.7ms | Allocations: 271402)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 22:58:52 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.3ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 3.6ms | Allocations: 3521)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 4.4ms | Allocations: 3920)
+  Rendered work/choose_theme.js.erb (Duration: 9.4ms | Allocations: 8044)
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 1.3ms | Allocations: 10662)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 22:58:55 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.6ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.2ms | Allocations: 48)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.3ms | Allocations: 181)
+  Rendered work/choose_theme.js.erb (Duration: 1.0ms | Allocations: 524)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 1378)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 22:59:03 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.7ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 48)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.4ms | Allocations: 181)
+  Rendered work/choose_theme.js.erb (Duration: 0.9ms | Allocations: 524)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 1383)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 22:59:06 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1234)
+
+
+
+NameError - undefined local variable or method `current_user' for an instance of WorkController:
+  app/controllers/work_controller.rb:20:in `display_theme'
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 22:59:16 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1159)
+
+
+
+NameError - undefined local variable or method `current_user' for an instance of WorkController:
+  app/controllers/work_controller.rb:20:in `display_theme'
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 22:59:17 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1157)
+
+
+
+NameError - undefined local variable or method `current_user' for an instance of WorkController:
+  app/controllers/work_controller.rb:20:in `display_theme'
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 23:01:08 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkController#index as HTML
+  [1m[36mImage Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:6:in `index'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 3.1ms | Allocations: 3589)
+  Rendered work/index.html.haml within layouts/application (Duration: 291.2ms | Allocations: 92933)
+  Rendered shared/_header.html.haml (Duration: 19.5ms | Allocations: 7171)
+  Rendered shared/_footer.html.haml (Duration: 4.9ms | Allocations: 4546)
+  Rendered layout layouts/application.html.haml (Duration: 345.5ms | Allocations: 138207)
+Completed 200 OK in 420ms (Views: 350.5ms | ActiveRecord: 8.7ms | Allocations: 158028)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:01:10 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.3ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 3.9ms | Allocations: 3524)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 3.9ms | Allocations: 3923)
+  Rendered work/choose_theme.js.erb (Duration: 9.5ms | Allocations: 8050)
+Completed 200 OK in 17ms (Views: 10.6ms | ActiveRecord: 1.2ms | Allocations: 10674)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:01:12 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.7ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 6.5ms | Allocations: 3913)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 8.9ms | Allocations: 22642)
+
+
+
+Sprockets::Rails::Helper::AssetNotFound - The asset "pictures/" is not present in the asset pipeline.:
+  app/views/work/display_theme.js.erb:28
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:01:15 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 3]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.8ms | Allocations: 2615)
+
+
+
+NoMethodError - undefined method `attributes' for nil:
+  app/controllers/concerns/work_image.rb:8:in `show_image'
+  app/controllers/work_controller.rb:35:in `display_theme'
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 23:04:41 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkController#index as HTML
+  [1m[36mImage Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:6:in `index'
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 6.3ms | Allocations: 3592)
+  Rendered work/index.html.haml within layouts/application (Duration: 336.8ms | Allocations: 92947)
+  Rendered shared/_header.html.haml (Duration: 7.0ms | Allocations: 7180)
+  Rendered shared/_footer.html.haml (Duration: 6.0ms | Allocations: 4541)
+  Rendered layout layouts/application.html.haml (Duration: 401.8ms | Allocations: 139060)
+Completed 200 OK in 489ms (Views: 410.1ms | ActiveRecord: 8.6ms | Allocations: 158874)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:04:48 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.5ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 3.7ms | Allocations: 3525)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 3.9ms | Allocations: 3920)
+  Rendered work/choose_theme.js.erb (Duration: 9.8ms | Allocations: 8048)
+Completed 200 OK in 24ms (Views: 10.6ms | ActiveRecord: 2.2ms | Allocations: 10666)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:04:52 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"---"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:27:in `display_theme'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 40)
+  Rendered work/display_theme.js.erb (Duration: 1.1ms | Allocations: 574)
+Completed 200 OK in 38ms (Views: 2.3ms | ActiveRecord: 6.1ms | Allocations: 9323)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:04:59 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.6ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.2ms | Allocations: 48)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.4ms | Allocations: 181)
+  Rendered work/choose_theme.js.erb (Duration: 1.2ms | Allocations: 524)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 1383)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:05:02 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 0.4ms | Allocations: 203)
+Completed 200 OK in 23ms (Views: 1.0ms | ActiveRecord: 3.6ms | Allocations: 11680)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:05:12 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.6ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.2ms | Allocations: 48)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.5ms | Allocations: 181)
+  Rendered work/choose_theme.js.erb (Duration: 1.3ms | Allocations: 524)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 1382)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:05:15 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 3]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.1ms | Allocations: 2654)
+
+
+
+NoMethodError - undefined method `attributes' for nil:
+  app/controllers/concerns/work_image.rb:8:in `show_image'
+  app/controllers/work_controller.rb:35:in `display_theme'
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:05:16 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.2ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 0.5ms | Allocations: 203)
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 2.0ms | Allocations: 3030)
+
+
