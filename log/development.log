@@ -668,3 +668,443 @@ Migrating to CreateUsers (20260518174634)
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:51:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 9.6ms | Allocations: 11845)
+  Rendered layout layouts/application.html.haml (Duration: 2690.9ms | Allocations: 520177)
+Completed 500 Internal Server Error in 2712ms (ActiveRecord: 0.0ms | Allocations: 525555)
+
+
+
+Sprockets::Rails::Helper::AssetNotPrecompiledError - Asset `application.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+  //= link application.js
+and restart your server:
+  app/views/layouts/application.html.haml:10
+
+Started POST "/__better_errors/feee36ddd3725a4e/variables" for 127.0.0.1 at 2026-05-18 20:51:12 +0300
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:53:25 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 8.6ms | Allocations: 11845)
+  Rendered layout layouts/application.html.haml (Duration: 358.3ms | Allocations: 68281)
+Completed 500 Internal Server Error in 378ms (ActiveRecord: 0.0ms | Allocations: 73659)
+
+
+
+Sprockets::ArgumentError - link_tree argument must be a directory:
+
+Started POST "/__better_errors/3c11638c5eed45a6/variables" for 127.0.0.1 at 2026-05-18 20:53:26 +0300
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:53:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 8.3ms | Allocations: 11845)
+  Rendered layout layouts/application.html.haml (Duration: 82.4ms | Allocations: 49099)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.0ms | Allocations: 54776)
+
+
+
+Sprockets::ArgumentError - link_tree argument must be a directory:
+
+Started POST "/__better_errors/ecfbef03220cc3b2/variables" for 127.0.0.1 at 2026-05-18 20:53:50 +0300
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:57:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 8.6ms | Allocations: 11845)
+  Rendered layout layouts/application.html.haml (Duration: 512.5ms | Allocations: 127037)
+Completed 500 Internal Server Error in 532ms (ActiveRecord: 0.0ms | Allocations: 132415)
+
+
+
+NameError - undefined local variable or method `javascript_importmap_tags' for an instance of #<Class:0x000074a02f1232b8>:
+  app/views/layouts/application.html.haml:11
+
+Started POST "/__better_errors/27bbb8d55fd02d04/variables" for 127.0.0.1 at 2026-05-18 20:57:03 +0300
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:57:17 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 11.8ms | Allocations: 11845)
+  Rendered layout layouts/application.html.haml (Duration: 259.7ms | Allocations: 125287)
+Completed 500 Internal Server Error in 274ms (ActiveRecord: 0.0ms | Allocations: 130665)
+
+
+
+NameError - undefined local variable or method `javascript_importmap_tags' for an instance of #<Class:0x000075b4d1819920>:
+  app/views/layouts/application.html.haml:11
+
+Started POST "/__better_errors/25e13102a4ef226c/variables" for 127.0.0.1 at 2026-05-18 20:57:18 +0300
+Started GET "/" for 127.0.0.1 at 2026-05-18 20:58:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 9.2ms | Allocations: 11845)
+  Rendered layout layouts/application.html.haml (Duration: 467.8ms | Allocations: 112826)
+Completed 500 Internal Server Error in 486ms (ActiveRecord: 0.0ms | Allocations: 118205)
+
+
+
+NameError - undefined local variable or method `javascript_importmap_tags' for an instance of #<Class:0x000078e896938850>:
+  app/views/layouts/application.html.haml:11
+
+Started POST "/__better_errors/c12cef32e7313a2e/variables" for 127.0.0.1 at 2026-05-18 20:58:37 +0300
+Started GET "/" for 127.0.0.1 at 2026-05-18 21:00:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 8.0ms | Allocations: 11845)
+  Rendered shared/_header.html.haml (Duration: 5.8ms | Allocations: 5869)
+  Rendered shared/_footer.html.haml (Duration: 4.6ms | Allocations: 4644)
+  Rendered layout layouts/application.html.haml (Duration: 289.3ms | Allocations: 116431)
+Completed 200 OK in 309ms (Views: 293.0ms | ActiveRecord: 0.0ms | Allocations: 121847)
+
+
+Started GET "/main/contacts" for 127.0.0.1 at 2026-05-18 21:00:10 +0300
+Processing by MainController#contacts as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/contacts.html.haml within layouts/application
+  Rendered main/contacts.html.haml within layouts/application (Duration: 3.4ms | Allocations: 3313)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 31.2ms | Allocations: 26745)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.0ms | Allocations: 27232)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 21:00:11 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 35.9ms | Allocations: 23698)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.0ms | Allocations: 24108)
+
+
+Started GET "/main/help" for 127.0.0.1 at 2026-05-18 21:00:13 +0300
+Processing by MainController#help as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/help.html.haml within layouts/application
+  Rendered main/help.html.haml within layouts/application (Duration: 4.4ms | Allocations: 3315)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 28.0ms | Allocations: 26660)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 27119)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 21:00:14 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.2ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.0ms | Allocations: 23703)
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.0ms | Allocations: 24096)
+
+
+Started GET "/main/about" for 127.0.0.1 at 2026-05-18 21:00:15 +0300
+Processing by MainController#about as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 4.3ms | Allocations: 2860)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 102)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 28.8ms | Allocations: 26207)
+Completed 200 OK in 36ms (Views: 29.6ms | ActiveRecord: 0.0ms | Allocations: 26699)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 21:00:17 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.4ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 62.4ms | Allocations: 23841)
+Completed 200 OK in 73ms (Views: 63.1ms | ActiveRecord: 0.0ms | Allocations: 24249)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 21:00:18 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.2ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 21.8ms | Allocations: 23388)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 23793)
+
+
+Started GET "/main/help" for 127.0.0.1 at 2026-05-18 21:00:19 +0300
+Processing by MainController#help as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/help.html.haml within layouts/application
+  Rendered main/help.html.haml within layouts/application (Duration: 0.2ms | Allocations: 35)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 28.0ms | Allocations: 23785)
+Completed 200 OK in 29ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 24187)
+
+
+Started GET "/main/contacts" for 127.0.0.1 at 2026-05-18 21:00:20 +0300
+Processing by MainController#contacts as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/contacts.html.haml within layouts/application
+  Rendered main/contacts.html.haml within layouts/application (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 26.0ms | Allocations: 23210)
+Completed 200 OK in 27ms (Views: 26.4ms | ActiveRecord: 0.0ms | Allocations: 23609)
+
+
+Started GET "/main/about" for 127.0.0.1 at 2026-05-18 21:00:21 +0300
+Processing by MainController#about as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 102)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 26.1ms | Allocations: 23768)
+Completed 200 OK in 27ms (Views: 26.9ms | ActiveRecord: 0.0ms | Allocations: 24173)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 21:00:23 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  Rendered main/index.html.haml within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 26.5ms | Allocations: 23266)
+Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.0ms | Allocations: 23680)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-05-18 21:01:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+Started GET "/users" for 127.0.0.1 at 2026-05-18 21:01:10 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:13
+  Rendered users/index.html.haml within layouts/application (Duration: 33.5ms | Allocations: 11379)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 60.5ms | Allocations: 35150)
+Completed 200 OK in 84ms (Views: 54.3ms | ActiveRecord: 7.0ms | Allocations: 42948)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-05-18 21:01:15 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+Started GET "/users" for 127.0.0.1 at 2026-05-18 21:01:25 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:13
+  Rendered users/index.html.haml within layouts/application (Duration: 2.0ms | Allocations: 444)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 29.4ms | Allocations: 24198)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.6ms | Allocations: 24629)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2026-05-18 21:01:28 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 12.1ms | Allocations: 8586)
+  Rendered users/new.html.haml within layouts/application (Duration: 17.1ms | Allocations: 12062)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 88)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 38.2ms | Allocations: 35274)
+Completed 200 OK in 59ms (Views: 38.8ms | ActiveRecord: 6.0ms | Allocations: 41136)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Фролова Юлия"], ["email", "Frolova.Y.M@mail.ru"], ["created_at", "2026-05-18 18:02:57.265539"], ["updated_at", "2026-05-18 18:02:57.265539"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (7.6ms)[0m  [1m[33mUPDATE "users" SET "email" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["email", "frjumi@gmail.com"], ["updated_at", "2026-05-18 18:04:13.801668"], ["id", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Count (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/users" for 127.0.0.1 at 2026-05-18 21:05:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:13
+  Rendered users/index.html.haml within layouts/application (Duration: 34.4ms | Allocations: 18084)
+  Rendered shared/_header.html.haml (Duration: 4.3ms | Allocations: 5880)
+  Rendered shared/_footer.html.haml (Duration: 3.4ms | Allocations: 4622)
+  Rendered layout layouts/application.html.haml (Duration: 324.0ms | Allocations: 122658)
+Completed 200 OK in 372ms (Views: 324.5ms | ActiveRecord: 4.3ms | Allocations: 133882)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2026-05-18 21:05:43 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 10.6ms | Allocations: 8390)
+  Rendered users/new.html.haml within layouts/application (Duration: 15.8ms | Allocations: 11858)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 88)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 44.8ms | Allocations: 35731)
+Completed 200 OK in 64ms (Views: 45.3ms | ActiveRecord: 6.8ms | Allocations: 41411)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-05-18 21:05:51 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"frjumi", "email"=>"Frolova.Y.M@mail.ru"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "frjumi"], ["email", "Frolova.Y.M@mail.ru"], ["created_at", "2026-05-18 18:05:51.498959"], ["updated_at", "2026-05-18 18:05:51.498959"]]
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/users/2
+Completed 302 Found in 10ms (ActiveRecord: 5.7ms | Allocations: 4387)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2026-05-18 21:05:51 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  Rendered users/show.html.haml within layouts/application (Duration: 5.5ms | Allocations: 4895)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 33.6ms | Allocations: 28662)
+Completed 200 OK in 42ms (Views: 34.2ms | ActiveRecord: 0.7ms | Allocations: 33568)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2026-05-18 21:05:54 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/edit.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.0ms | Allocations: 544)
+  Rendered users/edit.html.haml within layouts/application (Duration: 5.3ms | Allocations: 4335)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 88)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 37.2ms | Allocations: 28100)
+Completed 200 OK in 42ms (Views: 37.9ms | ActiveRecord: 0.4ms | Allocations: 28974)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2026-05-18 21:05:55 +0300
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"frjumi", "email"=>"Frolova.Y.M@mail.ru"}, "commit"=>"Save", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+Redirected to http://127.0.0.1:3000/users/2
+Completed 303 See Other in 4ms (ActiveRecord: 0.3ms | Allocations: 1010)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2026-05-18 21:05:55 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  Rendered users/show.html.haml within layouts/application (Duration: 0.8ms | Allocations: 75)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 26.3ms | Allocations: 23717)
+Completed 200 OK in 30ms (Views: 26.9ms | ActiveRecord: 0.3ms | Allocations: 24547)
+
+
+Started GET "/users" for 127.0.0.1 at 2026-05-18 21:05:58 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:13
+  Rendered users/index.html.haml within layouts/application (Duration: 2.5ms | Allocations: 559)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 27.7ms | Allocations: 24078)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.6ms | Allocations: 24484)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2026-05-18 21:06:05 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  Rendered users/show.html.haml within layouts/application (Duration: 0.3ms | Allocations: 75)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 89)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 42.2ms | Allocations: 23717)
+Completed 200 OK in 46ms (Views: 42.8ms | ActiveRecord: 0.4ms | Allocations: 24544)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2026-05-18 21:06:09 +0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/edit.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.5ms | Allocations: 531)
+  Rendered users/edit.html.haml within layouts/application (Duration: 2.1ms | Allocations: 637)
+  Rendered shared/_header.html.haml (Duration: 0.1ms | Allocations: 88)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 24.3ms | Allocations: 24151)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.6ms | Allocations: 24966)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["email", "admin@example.com"], ["created_at", "2026-05-18 18:07:36.301795"], ["updated_at", "2026-05-18 18:07:36.301795"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test User"], ["email", "test@example.com"], ["created_at", "2026-05-18 18:07:36.306438"], ["updated_at", "2026-05-18 18:07:36.306438"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for 127.0.0.1 at 2026-05-18 21:07:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:13
+  Rendered users/index.html.haml within layouts/application (Duration: 47.3ms | Allocations: 23709)
+  Rendered shared/_header.html.haml (Duration: 5.2ms | Allocations: 5880)
+  Rendered shared/_footer.html.haml (Duration: 3.5ms | Allocations: 4622)
+  Rendered layout layouts/application.html.haml (Duration: 311.8ms | Allocations: 128205)
+Completed 200 OK in 363ms (Views: 306.2ms | ActiveRecord: 9.8ms | Allocations: 139434)
+
+
