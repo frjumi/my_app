@@ -2470,3 +2470,296 @@ Processing by WorkController#display_theme as JS
 Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 2.0ms | Allocations: 3030)
 
 
+Started GET "/" for 127.0.0.1 at 2026-05-18 23:08:33 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkController#index as HTML
+  [1m[36mImage Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:6:in `index'
+  [1m[36mValue Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 4.0ms | Allocations: 3589)
+  Rendered work/index.html.haml within layouts/application (Duration: 592.3ms | Allocations: 100135)
+  Rendered shared/_header.html.haml (Duration: 5.2ms | Allocations: 7184)
+  Rendered shared/_footer.html.haml (Duration: 3.5ms | Allocations: 4541)
+  Rendered layout layouts/application.html.haml (Duration: 640.8ms | Allocations: 145503)
+Completed 200 OK in 757ms (Views: 648.7ms | ActiveRecord: 13.6ms | Allocations: 165385)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:08:36 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.3ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 3.3ms | Allocations: 3523)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 4.5ms | Allocations: 3920)
+  Rendered work/choose_theme.js.erb (Duration: 9.5ms | Allocations: 8046)
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 1.4ms | Allocations: 10679)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:08:37 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (1.0ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.3ms | Allocations: 48)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.8ms | Allocations: 181)
+  Rendered work/choose_theme.js.erb (Duration: 1.8ms | Allocations: 524)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 1.0ms | Allocations: 1390)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:08:39 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 1.0ms | Allocations: 580)
+Completed 200 OK in 43ms (Views: 1.6ms | ActiveRecord: 7.5ms | Allocations: 19274)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-18 23:08:40 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (0.8ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 9.9ms | Allocations: 8168)
+  Rendered shared/_header.html.haml (Duration: 0.2ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 41.4ms | Allocations: 31739)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.8ms | Allocations: 32456)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-18 23:08:41 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 11.2ms | Allocations: 9106)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.2ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 36.6ms | Allocations: 32545)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 1.0ms | Allocations: 33273)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2026-05-18 23:08:43 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 6.5ms | Allocations: 6074)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 137)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 34.4ms | Allocations: 29496)
+Completed 200 OK in 40ms (Views: 35.0ms | ActiveRecord: 0.3ms | Allocations: 31765)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 23:13:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkController#index as HTML
+  [1m[36mImage Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:6:in `index'
+  [1m[36mValue Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 5.0ms | Allocations: 3589)
+  Rendered work/index.html.haml within layouts/application (Duration: 881.8ms | Allocations: 215043)
+  Rendered shared/_header.html.haml (Duration: 8.4ms | Allocations: 7180)
+  Rendered shared/_footer.html.haml (Duration: 4.8ms | Allocations: 4542)
+  Rendered layout layouts/application.html.haml (Duration: 929.2ms | Allocations: 260325)
+Completed 200 OK in 1016ms (Views: 937.1ms | ActiveRecord: 11.4ms | Allocations: 280126)
+
+
+Started GET "/api/next_image?index=NaN&theme_id=NaN&length=NaN" for 127.0.0.1 at 2026-05-18 23:14:01 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"NaN", "theme_id"=>"NaN", "length"=>"NaN"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 0]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 3262)
+
+
+
+NoMethodError - undefined method `attributes' for nil:
+  app/controllers/concerns/work_image.rb:8:in `show_image'
+  app/controllers/api/api_controller.rb:12:in `next_image'
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:14:05 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.7ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 4.9ms | Allocations: 3537)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 12.9ms | Allocations: 3925)
+  Rendered work/choose_theme.js.erb (Duration: 21.5ms | Allocations: 8056)
+Completed 200 OK in 31ms (Views: 22.3ms | ActiveRecord: 2.2ms | Allocations: 10619)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:14:07 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.7ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 1.5ms | Allocations: 632)
+Completed 200 OK in 60ms (Views: 1.9ms | ActiveRecord: 9.3ms | Allocations: 17714)
+
+
+Started GET "/api/next_image?index=NaN&theme_id=NaN&length=NaN" for 127.0.0.1 at 2026-05-18 23:14:08 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"NaN", "theme_id"=>"NaN", "length"=>"NaN"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 0]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 1609)
+
+
+
+NoMethodError - undefined method `attributes' for nil:
+  app/controllers/concerns/work_image.rb:8:in `show_image'
+  app/controllers/api/api_controller.rb:12:in `next_image'
+
+Started GET "/api/next_image?index=NaN&theme_id=NaN&length=NaN" for 127.0.0.1 at 2026-05-18 23:14:10 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"NaN", "theme_id"=>"NaN", "length"=>"NaN"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 0]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 1595)
+
+
+
+NoMethodError - undefined method `attributes' for nil:
+  app/controllers/concerns/work_image.rb:8:in `show_image'
+  app/controllers/api/api_controller.rb:12:in `next_image'
+
+Started GET "/api/prev_image?index=NaN&theme_id=NaN&length=NaN" for 127.0.0.1 at 2026-05-18 23:14:11 +0300
+Processing by Api::ApiController#prev_image as JSON
+  Parameters: {"index"=>"NaN", "theme_id"=>"NaN", "length"=>"NaN"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 0]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 1597)
+
+
+
+NoMethodError - undefined method `attributes' for nil:
+  app/controllers/concerns/work_image.rb:8:in `show_image'
+  app/controllers/api/api_controller.rb:40:in `prev_image'
+
+Started GET "/" for 127.0.0.1 at 2026-05-18 23:16:04 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WorkController#index as HTML
+  [1m[36mImage Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:6:in `index'
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 5.0ms | Allocations: 3589)
+  Rendered work/index.html.haml within layouts/application (Duration: 851.4ms | Allocations: 208387)
+  Rendered shared/_header.html.haml (Duration: 8.8ms | Allocations: 7171)
+  Rendered shared/_footer.html.haml (Duration: 5.1ms | Allocations: 4540)
+  Rendered layout layouts/application.html.haml (Duration: 901.1ms | Allocations: 253658)
+Completed 200 OK in 1008ms (Views: 912.6ms | ActiveRecord: 9.1ms | Allocations: 273503)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-18 23:16:07 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mTheme Pluck (0.5ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:15:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 4.8ms | Allocations: 3521)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 3.8ms | Allocations: 3920)
+  Rendered work/choose_theme.js.erb (Duration: 10.8ms | Allocations: 8044)
+Completed 200 OK in 23ms (Views: 11.6ms | ActiveRecord: 2.8ms | Allocations: 10647)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-18 23:16:09 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:34:in `display_theme'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 1.6ms | Allocations: 639)
+Completed 200 OK in 52ms (Views: 2.0ms | ActiveRecord: 7.7ms | Allocations: 19313)
+
+
+Started GET "/api/next_image?index=0&theme_id=2&length=3" for 127.0.0.1 at 2026-05-18 23:16:10 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"0", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 11ms (Views: 4.7ms | ActiveRecord: 1.2ms | Allocations: 13172)
+
+
+Started GET "/api/next_image?index=1&theme_id=2&length=3" for 127.0.0.1 at 2026-05-18 23:16:11 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"1", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 1.3ms | Allocations: 2315)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for 127.0.0.1 at 2026-05-18 23:16:15 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/next_image?index=2&theme_id=2&length=3" for 127.0.0.1 at 2026-05-18 23:16:19 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"2", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (1.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 3.2ms | Allocations: 2299)
+
+

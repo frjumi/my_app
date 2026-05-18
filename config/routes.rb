@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   get 'main/help'
   get 'main/contacts'
   get 'main/about'
+
+  namespace :api do
+    get 'next_image', to: 'api#next_image'
+    get 'prev_image', to: 'api#prev_image'
+  end
+
   get 'work', to: 'work#index', as: 'work'
   get 'choose_theme', to: 'work#choose_theme', as: 'choose_theme'
   post 'display_theme', to: 'work#display_theme', as: 'display_theme'

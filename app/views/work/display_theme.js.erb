@@ -27,3 +27,13 @@ var selectedThemeId = '<%= @image_data[:theme_id] %>';
 $('.image_display h2.up').append().html(oneImageName);
 var pathImage = "/assets/pictures/" + oneImageFile;
 $(".img-center img").attr({ alt: "Selected Image", src: pathImage, title: "Selected image" });
+
+// Глобальные переменные для работы кнопок
+// Сохраняем параметры текущего изображения и темы для кнопок перелистывания
+window.imageCurrentIndex = <%= @image_data[:index] %>;
+window.selectedThemeId   = <%= @image_data[:theme_id] %>;
+window.themeImagesSize   = <%= @image_data[:images_arr_size] %>;
+
+console.log("DEBUG: index=" + window.imageCurrentIndex +
+  " theme_id=" + window.selectedThemeId +
+  " length=" + window.themeImagesSize);
