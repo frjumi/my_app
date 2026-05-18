@@ -3,21 +3,31 @@ Rails.application.routes.draw do
   resources :users
   resources :values
   resources :images
-  get 'main/index'
-  get 'main/help'
-  get 'main/contacts'
-  get 'main/about'
 
+  # Сессии
+  get 'signup', to: 'users#new'          # страница регистрации (уже есть от scaffold)
+  get 'signin', to: 'sessions#new'       # страница входа
+  post 'signin', to: 'sessions#create'    # обработка входа
+  delete 'signout', to: 'sessions#destroy'  # выход
+
+  # API
   namespace :api do
     get 'next_image', to: 'api#next_image'
     get 'prev_image', to: 'api#prev_image'
   end
 
+  # work routes
   get 'work', to: 'work#index', as: 'work'
   get 'choose_theme', to: 'work#choose_theme', as: 'choose_theme'
   post 'display_theme', to: 'work#display_theme', as: 'display_theme'
-  root 'work#index'
-  #root 'main#index'
+  #root 'work#index'
+
+  # main routes
+  get 'main/index'
+  get 'main/help'
+  get 'main/contacts'
+  get 'main/about'
+  root 'main#index'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,4 +1,6 @@
 class WorkController < ApplicationController
+  before_action :signed_in_user, only: [:index, :choose_theme, :display_theme]
+
   include WorkImage   # модуль, который мы создадим позже
   include WorkHelper  # хелпер (можно вложить методы напрямую, но для порядка)
 

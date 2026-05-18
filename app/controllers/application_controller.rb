@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-  # ... существующий код
+  include SessionsHelper
+  private
 
-  # Временная заглушка для current_user (возвращает первого пользователя из БД)
-  def current_user
-    @current_user ||= User.first
+  def signed_in_user
+    unless signed_in?
+      flash[:notice] = "Please sign in."
+      redirect_to signin_url
+    end
   end
-  helper_method :current_user   # чтобы метод был доступен в представлениях
 end

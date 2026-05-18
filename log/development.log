@@ -2763,3 +2763,890 @@ Processing by Api::ApiController#next_image as JSON
 Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 3.2ms | Allocations: 2299)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddPasswordDigestAndRememberTokenToUsers (20260518205038)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_token" character varying[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260518205038') RETURNING "version"[0m
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2026-05-19 00:10:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 100.9ms | Allocations: 26667)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 7.4ms | Allocations: 10057)
+  Rendered shared/_footer.html.haml (Duration: 4.4ms | Allocations: 4636)
+  Rendered layout layouts/application.html.haml (Duration: 400.9ms | Allocations: 143078)
+Completed 200 OK in 422ms (Views: 387.1ms | ActiveRecord: 18.6ms | Allocations: 148494)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:10:54 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 19.7ms | Allocations: 11283)
+  Rendered users/new.html.haml within layouts/application (Duration: 24.5ms | Allocations: 14751)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.7ms | Allocations: 580)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 56.1ms | Allocations: 38683)
+Completed 200 OK in 74ms (Views: 56.5ms | ActiveRecord: 4.5ms | Allocations: 44410)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:14:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 9.7ms | Allocations: 11559)
+  Rendered users/new.html.haml within layouts/application (Duration: 20.0ms | Allocations: 21729)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 24.7ms | Allocations: 14968)
+  Rendered shared/_footer.html.haml (Duration: 7.1ms | Allocations: 4552)
+  Rendered layout layouts/application.html.haml (Duration: 351.9ms | Allocations: 142830)
+Completed 200 OK in 439ms (Views: 356.6ms | ActiveRecord: 9.4ms | Allocations: 163934)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-19 00:14:15 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 5.6ms | Allocations: 4517)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.8ms | Allocations: 478)
+  Rendered shared/_footer.html.haml (Duration: 0.3ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 30.7ms | Allocations: 28657)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.3ms | Allocations: 29321)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:14:16 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.7ms | Allocations: 843)
+  Rendered users/new.html.haml within layouts/application (Duration: 2.1ms | Allocations: 924)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.9ms | Allocations: 587)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 40.0ms | Allocations: 25108)
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.3ms | Allocations: 25541)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-05-19 00:14:22 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"frjumi", "email"=>"Frolova.Y.M@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "frjumi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "Frolova.Y.M@mail.ru"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.7ms | Allocations: 1773)
+  Rendered users/new.html.haml within layouts/application (Duration: 2.0ms | Allocations: 1854)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.8ms | Allocations: 578)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 31.5ms | Allocations: 25860)
+Completed 200 OK in 228ms (Views: 31.6ms | ActiveRecord: 10.0ms | Allocations: 30504)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-05-19 00:14:31 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"123", "email"=>"Frolova.Y.M@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "Frolova.Y.M@mail.ru"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.5ms | Allocations: 1605)
+  Rendered users/new.html.haml within layouts/application (Duration: 1.9ms | Allocations: 1686)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 2.1ms | Allocations: 578)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 97.2ms | Allocations: 25923)
+Completed 200 OK in 282ms (Views: 97.4ms | ActiveRecord: 2.6ms | Allocations: 29722)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-05-19 00:14:46 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"123", "email"=>"323232@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "323232@mail.ru"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 2.9ms | Allocations: 1605)
+  Rendered users/new.html.haml within layouts/application (Duration: 3.4ms | Allocations: 1686)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 2.2ms | Allocations: 578)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 31.4ms | Allocations: 25830)
+Completed 200 OK in 228ms (Views: 31.6ms | ActiveRecord: 2.6ms | Allocations: 29604)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-05-19 00:15:36 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"123434", "email"=>"323243432@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "123434"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "323243432@mail.ru"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 2.8ms | Allocations: 1605)
+  Rendered users/new.html.haml within layouts/application (Duration: 3.2ms | Allocations: 1686)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.5ms | Allocations: 578)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 35.8ms | Allocations: 25604)
+Completed 200 OK in 223ms (Views: 36.0ms | ActiveRecord: 3.5ms | Allocations: 29386)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-19 00:16:47 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 60.3ms | Allocations: 26529)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 29.7ms | Allocations: 10057)
+  Rendered shared/_footer.html.haml (Duration: 13.3ms | Allocations: 4636)
+  Rendered layout layouts/application.html.haml (Duration: 374.8ms | Allocations: 142925)
+Completed 200 OK in 395ms (Views: 372.3ms | ActiveRecord: 7.0ms | Allocations: 148335)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:16:51 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 9.3ms | Allocations: 10846)
+  Rendered users/new.html.haml within layouts/application (Duration: 14.9ms | Allocations: 14313)
+  Rendered layout layouts/application.html.haml (Duration: 15.1ms | Allocations: 14411)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 4.0ms | Allocations: 20185)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check = form_for @user do |f|
+  - if @user.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.email_field :email
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  .actions
+    = f.submit "Create my account", class: "btn btn-primary":
+  app/views/users/_form.html.haml:23:in `'
+  app/views/users/new.html.haml:3
+
+Started POST "/__better_errors/a9042d1a750e70f4/variables" for 127.0.0.1 at 2026-05-19 00:16:51 +0300
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:17:41 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 11.4ms | Allocations: 11558)
+  Rendered users/new.html.haml within layouts/application (Duration: 21.5ms | Allocations: 21708)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 49.2ms | Allocations: 14975)
+  Rendered shared/_footer.html.haml (Duration: 4.6ms | Allocations: 4548)
+  Rendered layout layouts/application.html.haml (Duration: 379.2ms | Allocations: 142828)
+Completed 200 OK in 450ms (Views: 381.9ms | ActiveRecord: 11.2ms | Allocations: 163881)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/signin" for 127.0.0.1 at 2026-05-19 00:18:02 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering sessions/new.html.haml within layouts/application
+  Rendered sessions/new.html.haml within layouts/application (Duration: 13.1ms | Allocations: 6596)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 2.2ms | Allocations: 593)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 42.5ms | Allocations: 30592)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.4ms | Allocations: 31258)
+
+
+Started POST "/signin" for 127.0.0.1 at 2026-05-19 00:18:12 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"expert@example.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "expert@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+  Rendering layout layouts/application.html.haml
+  Rendering sessions/new.html.haml within layouts/application
+  Rendered sessions/new.html.haml within layouts/application (Duration: 0.7ms | Allocations: 374)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.4ms | Allocations: 579)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 34.8ms | Allocations: 24546)
+Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 0.6ms | Allocations: 25633)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-19 00:18:18 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 7.5ms | Allocations: 4527)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.0ms | Allocations: 478)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 38.9ms | Allocations: 28447)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.4ms | Allocations: 29080)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:18:19 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.7ms | Allocations: 843)
+  Rendered users/new.html.haml within layouts/application (Duration: 2.2ms | Allocations: 924)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.9ms | Allocations: 580)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 36.2ms | Allocations: 25153)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.3ms | Allocations: 25568)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-05-19 00:18:30 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"frjumi", "email"=>"frjumi@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "frjumi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "frjumi@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.8ms | Allocations: 1773)
+  Rendered users/new.html.haml within layouts/application (Duration: 2.5ms | Allocations: 1854)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.8ms | Allocations: 578)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.4ms | Allocations: 25796)
+Completed 200 OK in 227ms (Views: 32.7ms | ActiveRecord: 5.2ms | Allocations: 30406)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-05-19 00:18:39 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"frjumi", "email"=>"frjumi@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "frjumi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "frjumi@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "remember_token") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "frjumi"], ["email", "frjumi@gmail.com"], ["created_at", "2026-05-18 21:18:39.676144"], ["updated_at", "2026-05-18 21:18:39.676144"], ["password_digest", "$2a$12$dsxRthlFTPfvv8Liz.a6Teg1jDmNFP4G9CAx0cuQ528rKVLWVfR/G"], ["remember_token", "a4d6628738c977bac25e6bfa92fde8c60a88b9d7"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:5:in `sign_in'
+  [1m[36mUser Update (3.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "remember_token" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2026-05-18 21:18:39.683288"], ["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["id", 2]]
+  ↳ app/helpers/sessions_helper.rb:5:in `sign_in'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:5:in `sign_in'
+Redirected to http://127.0.0.1:3000/work
+Completed 302 Found in 202ms (ActiveRecord: 11.6ms | Allocations: 7233)
+
+
+Started GET "/work" for 127.0.0.1 at 2026-05-19 00:18:39 +0300
+Processing by WorkController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mImage Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:8:in `index'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:11:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 2.9ms | Allocations: 3445)
+  Rendered work/index.html.haml within layouts/application (Duration: 15.7ms | Allocations: 18187)
+  Rendered shared/_header.html.haml (Duration: 0.4ms | Allocations: 243)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 41.5ms | Allocations: 41712)
+Completed 200 OK in 60ms (Views: 42.1ms | ActiveRecord: 3.7ms | Allocations: 47407)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-19 00:18:47 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Pluck (0.4ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:17:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 2.7ms | Allocations: 3452)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 2.9ms | Allocations: 3872)
+  Rendered work/choose_theme.js.erb (Duration: 7.1ms | Allocations: 7926)
+Completed 200 OK in 109ms (Views: 7.8ms | ActiveRecord: 1.6ms | Allocations: 23958)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-19 00:18:49 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Load (0.6ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:36:in `display_theme'
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 0.9ms | Allocations: 639)
+Completed 200 OK in 28ms (Views: 1.4ms | ActiveRecord: 4.2ms | Allocations: 10665)
+
+
+Started GET "/api/next_image?index=0&theme_id=2&length=3" for 127.0.0.1 at 2026-05-19 00:18:51 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"0", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 1.3ms | Allocations: 13068)
+
+
+Started GET "/api/next_image?index=1&theme_id=2&length=3" for 127.0.0.1 at 2026-05-19 00:18:52 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"1", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 1.6ms | Allocations: 2218)
+
+
+Started GET "/api/next_image?index=2&theme_id=2&length=3" for 127.0.0.1 at 2026-05-19 00:18:54 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"2", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 13ms (Views: 2.3ms | ActiveRecord: 1.7ms | Allocations: 2207)
+
+
+Started GET "/api/next_image?index=0&theme_id=2&length=3" for 127.0.0.1 at 2026-05-19 00:18:55 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"0", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 2212)
+
+
+Started GET "/api/next_image?index=1&theme_id=2&length=3" for 127.0.0.1 at 2026-05-19 00:18:55 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"1", "theme_id"=>"2", "length"=>"3"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 2230)
+
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-19 00:18:57 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Pluck (0.3ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:17:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 48)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.4ms | Allocations: 181)
+  Rendered work/choose_theme.js.erb (Duration: 0.9ms | Allocations: 524)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 1830)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-19 00:18:58 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Load (1.1ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:36:in `display_theme'
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 3]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.3ms | Allocations: 2541)
+
+
+
+NoMethodError - undefined method `attributes' for nil:
+  app/controllers/concerns/work_image.rb:8:in `show_image'
+  app/controllers/work_controller.rb:37:in `display_theme'
+
+Started GET "/choose_theme" for 127.0.0.1 at 2026-05-19 00:19:01 +0300
+Processing by WorkController#choose_theme as JS
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Pluck (0.3ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:17:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 49)
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.3ms | Allocations: 181)
+  Rendered work/choose_theme.js.erb (Duration: 0.9ms | Allocations: 525)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 1832)
+
+
+Started POST "/display_theme" for 127.0.0.1 at 2026-05-19 00:19:02 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Load (0.6ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:36:in `display_theme'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.1ms | Allocations: 41)
+  Rendered work/display_theme.js.erb (Duration: 0.4ms | Allocations: 210)
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 1.9ms | Allocations: 2933)
+
+
+Started GET "/api/next_image?index=0&theme_id=4&length=1" for 127.0.0.1 at 2026-05-19 00:19:04 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"0", "theme_id"=>"4", "length"=>"1"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 1.2ms | Allocations: 2206)
+
+
+Started GET "/api/next_image?index=0&theme_id=4&length=1" for 127.0.0.1 at 2026-05-19 00:19:04 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"0", "theme_id"=>"4", "length"=>"1"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 1.6ms | Allocations: 2201)
+
+
+Started GET "/api/prev_image?index=0&theme_id=4&length=1" for 127.0.0.1 at 2026-05-19 00:19:05 +0300
+Processing by Api::ApiController#prev_image as JSON
+  Parameters: {"index"=>"0", "theme_id"=>"4", "length"=>"1"}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 2208)
+
+
+Started GET "/api/next_image?index=0&theme_id=4&length=1" for 127.0.0.1 at 2026-05-19 00:19:06 +0300
+Processing by Api::ApiController#next_image as JSON
+  Parameters: {"index"=>"0", "theme_id"=>"4", "length"=>"1"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:8:in `show_image'
+  [1m[36mValue Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:12:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 1.0ms | Allocations: 2171)
+
+
+Started GET "/images" for 127.0.0.1 at 2026-05-19 00:19:09 +0300
+Processing by ImagesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/views/images/index.html.haml:15
+  Rendered images/index.html.haml within layouts/application (Duration: 12.5ms | Allocations: 9138)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.5ms | Allocations: 618)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 42.4ms | Allocations: 33417)
+Completed 200 OK in 45ms (Views: 41.9ms | ActiveRecord: 1.3ms | Allocations: 34172)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2026-05-19 00:19:11 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:63:in `set_image'
+  Rendering layout layouts/application.html.haml
+  Rendering images/show.html.haml within layouts/application
+  Rendered images/show.html.haml within layouts/application (Duration: 8.8ms | Allocations: 6065)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 2.1ms | Allocations: 618)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 35.3ms | Allocations: 30328)
+Completed 200 OK in 41ms (Views: 35.8ms | ActiveRecord: 0.9ms | Allocations: 32629)
+
+
+Started GET "/themes" for 127.0.0.1 at 2026-05-19 00:19:13 +0300
+Processing by ThemesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (1.4ms)[0m  [1m[34mSELECT "themes".* FROM "themes"[0m
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 11.0ms | Allocations: 8087)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.4ms | Allocations: 618)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 38.1ms | Allocations: 32132)
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 1.7ms | Allocations: 32866)
+
+
+Started GET "/themes/1" for 127.0.0.1 at 2026-05-19 00:19:14 +0300
+Processing by ThemesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTheme Load (0.6ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/themes_controller.rb:63:in `set_theme'
+  Rendering layout layouts/application.html.haml
+  Rendering themes/show.html.haml within layouts/application
+  Rendered themes/show.html.haml within layouts/application (Duration: 6.7ms | Allocations: 4875)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.5ms | Allocations: 618)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 38.9ms | Allocations: 28936)
+Completed 200 OK in 49ms (Views: 39.2ms | ActiveRecord: 0.9ms | Allocations: 31151)
+
+
+Started GET "/values" for 127.0.0.1 at 2026-05-19 00:19:15 +0300
+Processing by ValuesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering values/index.html.haml within layouts/application
+  [1m[36mValue Load (1.1ms)[0m  [1m[34mSELECT "values".* FROM "values"[0m
+  ↳ app/views/values/index.html.haml:14
+  Rendered values/index.html.haml within layouts/application (Duration: 9.7ms | Allocations: 8177)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.4ms | Allocations: 618)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 35.8ms | Allocations: 32255)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 1.4ms | Allocations: 32989)
+
+
+Started GET "/main/help" for 127.0.0.1 at 2026-05-19 00:19:18 +0300
+Processing by MainController#help as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/help.html.haml within layouts/application
+  Rendered main/help.html.haml within layouts/application (Duration: 3.9ms | Allocations: 3308)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.8ms | Allocations: 620)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 34.6ms | Allocations: 27526)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.2ms | Allocations: 27997)
+
+
+Started GET "/main/contacts" for 127.0.0.1 at 2026-05-19 00:19:18 +0300
+Processing by MainController#contacts as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/contacts.html.haml within layouts/application
+  Rendered main/contacts.html.haml within layouts/application (Duration: 5.7ms | Allocations: 3313)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.9ms | Allocations: 620)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 34.6ms | Allocations: 27366)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.3ms | Allocations: 27855)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-19 00:19:19 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 2.3ms | Allocations: 470)
+  Rendered shared/_header.html.haml (Duration: 0.3ms | Allocations: 201)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 50.5ms | Allocations: 24152)
+Completed 200 OK in 52ms (Views: 50.7ms | ActiveRecord: 0.3ms | Allocations: 24559)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2026-05-19 00:19:24 +0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "f0aa9abc5b9d411be6475fce062c35bbee999989"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:23:in `sign_out'
+  [1m[36mUser Update (5.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "remember_token" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2026-05-18 21:19:24.374270"], ["remember_token", "695a94b6f0cb94510a544fb7cebfd89701f6b6d6"], ["id", 2]]
+  ↳ app/helpers/sessions_helper.rb:23:in `sign_out'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:23:in `sign_out'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 20ms (ActiveRecord: 7.6ms | Allocations: 2386)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-19 00:19:24 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 6.1ms | Allocations: 453)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 0.9ms | Allocations: 468)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 31.6ms | Allocations: 24404)
+Completed 200 OK in 36ms (Views: 33.0ms | ActiveRecord: 0.4ms | Allocations: 24812)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:19:25 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 2.3ms | Allocations: 843)
+  Rendered users/new.html.haml within layouts/application (Duration: 2.7ms | Allocations: 924)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 2.1ms | Allocations: 580)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 31.4ms | Allocations: 24906)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.2ms | Allocations: 25321)
+
+
+Started GET "/signin" for 127.0.0.1 at 2026-05-19 00:19:27 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering sessions/new.html.haml within layouts/application
+  Rendered sessions/new.html.haml within layouts/application (Duration: 1.2ms | Allocations: 383)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 2.4ms | Allocations: 581)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.4ms | Allocations: 24444)
+Completed 200 OK in 34ms (Views: 33.3ms | ActiveRecord: 0.3ms | Allocations: 24840)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:19:29 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 2.8ms | Allocations: 843)
+  Rendered users/new.html.haml within layouts/application (Duration: 3.3ms | Allocations: 924)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.7ms | Allocations: 580)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 37.8ms | Allocations: 24872)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.3ms | Allocations: 25296)
+
+
+Started GET "/signin" for 127.0.0.1 at 2026-05-19 00:19:30 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering sessions/new.html.haml within layouts/application
+  Rendered sessions/new.html.haml within layouts/application (Duration: 1.0ms | Allocations: 383)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 3.0ms | Allocations: 581)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 32.3ms | Allocations: 24443)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.3ms | Allocations: 24854)
+
+
+Started GET "/signin" for 127.0.0.1 at 2026-05-19 00:19:38 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering sessions/new.html.haml within layouts/application
+  Rendered sessions/new.html.haml within layouts/application (Duration: 1.7ms | Allocations: 383)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.5ms | Allocations: 581)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 33.4ms | Allocations: 24396)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.2ms | Allocations: 24783)
+
+
+Started GET "/signup" for 127.0.0.1 at 2026-05-19 00:19:39 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/_form.html.haml (Duration: 1.8ms | Allocations: 843)
+  Rendered users/new.html.haml within layouts/application (Duration: 2.2ms | Allocations: 924)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 2.5ms | Allocations: 580)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 35.8ms | Allocations: 24936)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.3ms | Allocations: 25360)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/signin" for 127.0.0.1 at 2026-05-19 00:19:47 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering sessions/new.html.haml within layouts/application
+  Rendered sessions/new.html.haml within layouts/application (Duration: 1.0ms | Allocations: 383)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.8ms | Allocations: 581)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 37.5ms | Allocations: 24445)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.3ms | Allocations: 24856)
+
+
+Started POST "/signin" for 127.0.0.1 at 2026-05-19 00:19:57 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"frjumi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frjumi@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:5:in `sign_in'
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "remember_token" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2026-05-18 21:19:57.771066"], ["remember_token", "fc46e9b98260793e086081bf68037812e33f4aae"], ["id", 2]]
+  ↳ app/helpers/sessions_helper.rb:5:in `sign_in'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:5:in `sign_in'
+Redirected to http://127.0.0.1:3000/work
+Completed 302 Found in 197ms (ActiveRecord: 12.7ms | Allocations: 2422)
+
+
+Started GET "/work" for 127.0.0.1 at 2026-05-19 00:19:57 +0300
+Processing by WorkController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "fc46e9b98260793e086081bf68037812e33f4aae"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mImage Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/work_controller.rb:8:in `index'
+  [1m[36mValue Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:11:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 0.3ms | Allocations: 48)
+  Rendered work/index.html.haml within layouts/application (Duration: 2.3ms | Allocations: 1138)
+  Rendered shared/_header.html.haml (Duration: 0.5ms | Allocations: 200)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 29.6ms | Allocations: 24657)
+Completed 200 OK in 38ms (Views: 30.4ms | ActiveRecord: 1.6ms | Allocations: 26317)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2026-05-19 00:20:00 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:53:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  Rendered users/show.html.haml within layouts/application (Duration: 108.9ms | Allocations: 22740)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "fc46e9b98260793e086081bf68037812e33f4aae"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 1.8ms | Allocations: 618)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 130.2ms | Allocations: 46838)
+Completed 200 OK in 136ms (Views: 130.5ms | ActiveRecord: 0.7ms | Allocations: 49078)
+
+
