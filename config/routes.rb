@@ -37,4 +37,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  if Rails.env.production?
+    get 'admin/run_seed', to: 'admin#run_seed'
+  end
 end
