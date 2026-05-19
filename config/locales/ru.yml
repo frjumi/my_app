@@ -72,6 +72,8 @@ ru:
       prev_success: "Переход к предыдущему изображению"
       image_not_found: "Изображение не найдено"
   sessions:
+    flash:
+      invalid_credentials: "Неверная комбинация email и пароля"
     new:
       sign_in: "Войти"
       email: "Электронная почта"

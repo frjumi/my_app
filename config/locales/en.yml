@@ -72,6 +72,8 @@ en:
       prev_success: "Moved to previous image"
       image_not_found: "Image not found"
   sessions:
+    flash:
+      invalid_credentials: "Invalid email/password combination"
     new:
       sign_in: "Sign in"
       email: "Email"

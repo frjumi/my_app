@@ -1,5 +1,8 @@
 .auth-card
   %h1= t('.sign_in')
+  - if flash[:alert]
+    .alert.alert-danger.flash-alert
+      = flash[:alert]
   = form_for(:session, url: signin_path) do |f|
     .field
       = f.label :email, t('.email')

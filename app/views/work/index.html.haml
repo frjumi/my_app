@@ -1,4 +1,4 @@
-#work-area.work-page.work-idle{data: { placeholder_url: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), welcome_image: asset_path('Musa_Winx.ico'), select_theme_first: t('.select_theme_first'), navigation_error: t('.navigation_error'), rating_error: t('.rating_error'), submit_rating: t('.submit_rating'), change_rating: t('.change_rating'), select_rating_hint: t('.select_rating_hint') }}
+#work-area.work-page.work-idle{data: { placeholder_url: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), select_theme_first: t('.select_theme_first'), navigation_error: t('.navigation_error'), rating_error: t('.rating_error'), submit_rating: t('.submit_rating'), select_rating_hint: t('.select_rating_hint') }}
   .row.work-layout
     .col-md-3.col-sm-12.work-sidebar
       .left_controls.panel-card
@@ -19,15 +19,15 @@
             %h2.up-theme= @selected_theme
           .col-md-12
             %h2.welcome-title= t('.welcome_title')
-            %h2.up.image-title{style: 'display: none;'}
+            %h2.image-title{style: 'display: none;'}
         .row.image-viewer
           .col-md-1.img-left-side
-            %a.nav-arrow{href: '#', title: t('.prev_image')}
+            %button.nav-arrow.btn-nav{type: 'button', title: t('.prev_image')}
               %i.fa.fa-chevron-circle-left
           .col-md-10.img-center
-            %img.work-image{alt: t('.welcome_title'), src: asset_path('Musa_Winx.ico'), title: t('.welcome_title'), onerror: "this.src='#{asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}")}'"}
+            %img.work-image{alt: t('.welcome_title'), src: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), title: t('.welcome_title')}
           .col-md-1.img-right-side
-            %a.nav-arrow{href: '#', title: t('.next_image')}
+            %button.nav-arrow.btn-nav{type: 'button', title: t('.next_image')}
               %i.fa.fa-chevron-circle-right
         .image_rating
           .row
