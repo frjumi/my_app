@@ -1,0 +1,32 @@
+.image_rating {
+  margin-top: 20px;
+  text-align: center;
+
+  .rating-stars {
+    font-size: 28px;
+
+    .star-label {
+      cursor: pointer;
+      margin: 0 4px;
+      color: #ccc;
+
+      input.rating-star {
+        display: none;
+      }
+
+      input.rating-star:checked + .fa-star,
+      &:hover .fa-star {
+        color: #f0ad4e;
+      }
+    }
+  }
+
+  .rating_message {
+    margin-top: 10px;
+  }
+}
+
+.profile-thumbnail {
+  max-width: 80px;
+  max-height: 80px;
+}

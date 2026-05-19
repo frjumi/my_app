@@ -1,0 +1,34 @@
+.profile-page
+  .row
+    %aside.col-md-4
+      %section.user-info
+        = gravatar_for @user, size: 100
+        %h1= @user.name
+        %p
+          %b= t('.email')
+          = @user.email
+        %p
+          %b= t('.total_ratings')
+          = @values_count
+    %aside.col-md-8
+      %section.aligned-ratings
+        %h2= t('.aligned_ratings_title')
+        - if @aligned_values.any?
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t('.image_name')
+                %th= t('.thumbnail')
+                %th= t('.your_rating')
+                %th= t('.average_rating')
+            %tbody
+              - @aligned_values.each do |user_value|
+                - image = user_value.image
+                %tr
+                  %td= image.name
+                  %td
+                    = image_tag asset_path("pictures/#{image.file}"), alt: image.name, class: 'profile-thumbnail', onerror: "this.src='#{asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}")}'"
+                  %td= user_value.value
+                  %td= image.ave_value ? number_with_precision(image.ave_value, precision: 2) : '—'
+        - else
+          %p.alert.alert-info= t('.no_aligned_ratings')
