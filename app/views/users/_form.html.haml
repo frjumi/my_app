@@ -7,15 +7,15 @@
           %li= msg
   .field
     = f.label t('.name')
-    = f.text_field :name
+    = f.text_field :name, class: 'form-control'
   .field
     = f.label t('.email')
-    = f.email_field :email
+    = f.email_field :email, class: 'form-control'
   .field
     = f.label t('.password')
-    = f.password_field :password
+    = f.password_field :password, class: 'form-control'
   .field
     = f.label t('.password_confirmation')
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control'
   .actions
-    = f.submit t('.create_account'), class: "btn btn-primary"
+    = f.submit t('.create_account'), class: "btn btn-primary btn-block"

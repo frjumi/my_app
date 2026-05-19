@@ -2,6 +2,7 @@
 *.rbc
 /.config
 /coverage/
+/brakeman/
 /InstalledFiles
 /pkg/
 /spec/reports/

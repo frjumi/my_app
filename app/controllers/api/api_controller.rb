@@ -14,21 +14,29 @@ module Api
       render_navigated_image(:prev)
     end
 
-    # POST /api/rate_image
+    # POST /api/rate_image — создание или обновление оценки текущего пользователя
     def rate_image
       image = Image.find(params[:image_id])
       rating = params[:value].to_i
       value_record = current_user.values.find_or_initialize_by(image_id: image.id)
+      is_new_record = value_record.new_record?
       value_record.value = rating
 
       if value_record.save
         image.recalculate_ave_value!
+        image.reload
+        message_key = is_new_record ? 'api.rate_image.created' : 'api.rate_image.updated'
+
         render json: {
           status: 'success',
-          message: I18n.t('api.rate_image.success'),
-          common_ave_value: image.reload.ave_value,
+          message: I18n.t(message_key),
+          new_average: image.ave_value,
+          new_total_values: image.values.count,
+          theme_values_count: theme_values_count(image.theme_id),
+          common_ave_value: image.ave_value,
           user_value: value_record.value,
-          user_valued: true
+          user_valued: true,
+          updated: !is_new_record
         }
       else
         render json: {
@@ -71,7 +79,12 @@ module Api
         image_id: image_data[:image_id],
         user_valued: image_data[:user_valued],
         common_ave_value: image_data[:common_ave_value],
+        new_average: image_data[:common_ave_value],
         value: image_data[:value],
+        user_value: image_data[:value],
+        new_total_values: image_data[:image_values_count],
+        image_values_count: image_data[:image_values_count],
+        theme_values_count: image_data[:theme_values_count],
         status: 'success'
       }
     end

@@ -1,4 +1,10 @@
+// Логика рабочей области: перелистывание изображений и оценивание звёздами
 $(document).ready(function() {
+  var $workArea = $('#work-area');
+  if (!$workArea.length) {
+    return;
+  }
+
   var csrfToken = $('meta[name="csrf-token"]').attr('content');
   if (csrfToken) {
     $.ajaxSetup({
@@ -8,13 +14,31 @@ $(document).ready(function() {
     });
   }
 
-  var placeholderUrl = $('#work-area').data('placeholder-url');
+  var placeholderUrl = $workArea.data('placeholder-url');
+  var pendingRating = 0;
+  var savedRating = 0;
+  var userHasRated = false;
 
   function formatAverage(value) {
-    if (value === null || value === undefined || value === 0) {
+    if (value === null || value === undefined || value === '' || Number(value) === 0) {
       return '—';
     }
     return parseFloat(value).toFixed(2);
+  }
+
+  // Серая звезда (fa-star-o) по умолчанию, жёлто-оранжевая (fa-star) при выборе/наведении
+  function highlightStars(count) {
+    $('.star-btn').each(function() {
+      var starValue = $(this).data('value');
+      var $icon = $(this).find('i');
+      if (starValue <= count && count > 0) {
+        $icon.removeClass('fa-star-o').addClass('fa-star');
+        $(this).addClass('star-active');
+      } else {
+        $icon.removeClass('fa-star').addClass('fa-star-o');
+        $(this).removeClass('star-active');
+      }
+    });
   }
 
   function setImageSrc($img, url, fallbackUrl) {
@@ -25,29 +49,36 @@ $(document).ready(function() {
     $img.attr('src', url);
   }
 
-  function updateRatingUI(data) {
-    window.currentImageId = data.image_id;
-    $('.common_ave_value').text(formatAverage(data.common_ave_value));
-    $('.rating-star').prop('checked', false);
-
-    if (data.user_valued && data.value) {
-      $('.rating-star[value="' + data.value + '"]').prop('checked', true);
-    }
-
-    $('.rating_message').hide();
-  }
-
-  function updateImageDisplay(data) {
-    if (data.status !== 'success') {
-      showRatingError(data.error || 'Unknown error');
+  function updateSubmitButton() {
+    var $btn = $('#submit-rating');
+    if (!pendingRating) {
+      $btn.prop('disabled', true).text($workArea.data('select-rating-hint'));
       return;
     }
 
-    window.imageCurrentIndex = data.new_image_index;
-    $('.image_display h2.up').text(data.name);
-    setImageSrc($('.img-center img'), data.image_url, data.placeholder_url || placeholderUrl);
-    $('.img-center img').attr('alt', data.name).attr('title', data.name);
-    updateRatingUI(data);
+    $btn.prop('disabled', false);
+    if (userHasRated) {
+      $btn.text($workArea.data('change-rating'));
+    } else {
+      $btn.text($workArea.data('submit-rating'));
+    }
+  }
+
+  function applyRatingState(data) {
+    window.currentImageId = data.image_id;
+    $('.common_ave_value').text(formatAverage(data.new_average || data.common_ave_value));
+    $('.image_values_count').text(data.new_total_values || data.image_values_count || 0);
+    if (data.theme_values_count !== undefined) {
+      $('.theme_values_count').text(data.theme_values_count);
+    }
+
+    savedRating = data.user_value || data.value || 0;
+    userHasRated = !!(data.user_valued && savedRating > 0);
+    pendingRating = savedRating;
+
+    highlightStars(pendingRating);
+    updateSubmitButton();
+    $('.rating_message').hide();
   }
 
   function showRatingMessage(message, isError) {
@@ -62,20 +93,34 @@ $(document).ready(function() {
     showRatingMessage(message, true);
   }
 
-  function submitRating(value) {
+  function submitRating() {
     if (!window.currentImageId) {
-      showRatingError($('#work-area').data('select-theme-first'));
+      showRatingError($workArea.data('select-theme-first'));
+      return;
+    }
+
+    if (!pendingRating) {
+      showRatingError($workArea.data('select-rating-hint'));
       return;
     }
 
     $.ajax({
       type: 'POST',
       url: '/api/rate_image',
-      data: { image_id: window.currentImageId, value: value },
+      data: { image_id: window.currentImageId, value: pendingRating },
       dataType: 'json',
       success: function(data) {
         if (data.status === 'success') {
-          $('.common_ave_value').text(formatAverage(data.common_ave_value));
+          savedRating = data.user_value;
+          userHasRated = true;
+          pendingRating = savedRating;
+          $('.common_ave_value').text(formatAverage(data.new_average));
+          $('.image_values_count').text(data.new_total_values);
+          if (data.theme_values_count !== undefined) {
+            $('.theme_values_count').text(data.theme_values_count);
+          }
+          highlightStars(savedRating);
+          updateSubmitButton();
           showRatingMessage(data.message, false);
         } else {
           showRatingError((data.errors || []).join(', ') || data.error);
@@ -83,33 +128,65 @@ $(document).ready(function() {
       },
       error: function(xhr) {
         var payload = xhr.responseJSON || {};
-        var message = (payload.errors || []).join(', ') || payload.error || $('#work-area').data('rating-error');
+        var message = (payload.errors || []).join(', ') || payload.error || $workArea.data('rating-error');
         showRatingError(message);
       }
     });
   }
 
-  $('.rating-star').on('change', function() {
-    submitRating($(this).val());
+  $('.star-btn').on('click', function() {
+    pendingRating = $(this).data('value');
+    highlightStars(pendingRating);
+    updateSubmitButton();
   });
 
-  $('.img-right-side').on('click', function(e) {
+  $('.star-btn').on('mouseenter', function() {
+    highlightStars($(this).data('value'));
+  });
+
+  $('.rating-stars').on('mouseleave', function() {
+    highlightStars(pendingRating);
+  });
+
+  $('#submit-rating').on('click', function() {
+    submitRating();
+  });
+
+  $('.img-right-side .nav-arrow, .img-right-side').on('click', function(e) {
     e.preventDefault();
     navigateImage('/api/next_image');
   });
 
-  $('.img-left-side').on('click', function(e) {
+  $('.img-left-side .nav-arrow, .img-left-side').on('click', function(e) {
     e.preventDefault();
     navigateImage('/api/prev_image');
   });
 
+  function updateImageDisplay(data) {
+    if (data.status !== 'success') {
+      showRatingError(data.error || 'Unknown error');
+      return;
+    }
+
+    window.imageCurrentIndex = data.new_image_index;
+    $('.image-title').text(data.name).show();
+    $('.welcome-title').hide();
+    setImageSrc($('.img-center img'), data.image_url, data.placeholder_url || placeholderUrl);
+    $('.img-center img').attr('alt', data.name).attr('title', data.name);
+    applyRatingState(data);
+  }
+
   function navigateImage(url) {
+    if ($workArea.hasClass('work-idle')) {
+      return;
+    }
+
     var index = window.imageCurrentIndex;
     var themeId = window.selectedThemeId;
     var length = window.themeImagesSize;
 
-    if (isNaN(index) || isNaN(themeId) || isNaN(length) || !themeId || length === 0) {
-      showRatingError($('#work-area').data('select-theme-first'));
+    if (isNaN(index) || isNaN(themeId) || !themeId || length === 0) {
+      showRatingError($workArea.data('select-theme-first'));
       return;
     }
 
@@ -121,11 +198,24 @@ $(document).ready(function() {
       success: updateImageDisplay,
       error: function(xhr) {
         var payload = xhr.responseJSON || {};
-        showRatingError(payload.error || $('#work-area').data('navigation-error'));
+        showRatingError(payload.error || $workArea.data('navigation-error'));
         if (placeholderUrl) {
           setImageSrc($('.img-center img'), placeholderUrl);
         }
       }
     });
   }
+
+  window.WorkRating = {
+    applyRatingState: applyRatingState,
+    highlightStars: highlightStars,
+    updateSubmitButton: updateSubmitButton,
+    resetPending: function() {
+      pendingRating = 0;
+      savedRating = 0;
+      userHasRated = false;
+      highlightStars(0);
+      updateSubmitButton();
+    }
+  };
 });

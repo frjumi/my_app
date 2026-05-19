@@ -1,8 +1,400 @@
+// Переменные Bootstrap
+$brand-primary: #337ab7;
+$navbar-default-bg: #2c3e50;
+$navbar-default-link-color: #ecf0f1;
+$navbar-default-link-hover-color: #ffffff;
+
 body {
   padding-top: 70px;
+  background-color: #f5f7fa;
+  color: #333;
 }
+
+// Хедер
+.navbar-default {
+  background-color: $navbar-default-bg;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  .navbar-brand,
+  .navbar-nav > li > a {
+    color: $navbar-default-link-color;
+
+    &:hover,
+    &:focus {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+
+  .dropdown-menu > li > a {
+    color: #333;
+  }
+}
+
+// Футер
 footer {
   margin-top: 50px;
-  padding: 20px 0;
-  border-top: 1px solid #eaeaea;
+  padding: 25px 0;
+  background-color: #2c3e50;
+  color: #bdc3c7;
+  border-top: none;
+
+  a {
+    color: #3498db;
+
+    &:hover {
+      color: #5dade2;
+    }
+  }
+}
+
+// Карточки
+.panel-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+// Главная страница — статистика
+.main-stats {
+  margin: 25px 0;
+
+  p.lead {
+    margin: 8px 0;
+    font-size: 18px;
+  }
+
+  .stat-label {
+    color: #555;
+    margin-right: 8px;
+  }
+
+  strong {
+    color: $brand-primary;
+    font-size: 22px;
+  }
+}
+
+// Рабочая область /work
+.work-page {
+  .work-layout {
+    align-items: flex-start;
+  }
+
+  .work-sidebar {
+    position: relative;
+    z-index: 50;
+  }
+
+  .work-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .select_theme-wrapper {
+    position: relative;
+    z-index: 100;
+    margin-bottom: 15px;
+  }
+
+  .btn-select-theme {
+    font-weight: 600;
+    padding: 10px 16px;
+  }
+
+  .form_select {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: #fff;
+    padding: 12px;
+    border: 1px solid #dce1e6;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .theme-select-dropdown {
+    width: 100%;
+  }
+
+  .work-stats {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+
+    .stat-item {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #555;
+
+      span {
+        display: block;
+        font-weight: bold;
+        color: $brand-primary;
+        font-size: 18px;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .image_display {
+    text-align: center;
+  }
+
+  .image-header {
+    margin-bottom: 10px;
+  }
+
+  .up-theme {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 5px;
+  }
+
+  .welcome-title {
+    font-size: 26px;
+    color: #2c3e50;
+    margin: 15px 0;
+    font-weight: 600;
+  }
+
+  .image-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .image-viewer {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .img-center {
+    img.work-image {
+      max-width: 100%;
+      max-height: 420px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .img-left-side,
+  .img-right-side {
+    display: none;
+  }
+
+  &:not(.work-idle) {
+    .img-left-side,
+    .img-right-side {
+      display: block;
+    }
+  }
+
+  &.work-idle {
+    .image_rating {
+      display: none !important;
+    }
+
+    .img-left-side,
+    .img-right-side {
+      display: none !important;
+    }
+
+    .welcome-title {
+      display: block !important;
+    }
+
+    .image-title {
+      display: none !important;
+    }
+
+    .img-center img.work-image {
+      max-height: 200px;
+      width: auto;
+    }
+  }
+
+  .nav-arrow {
+    display: inline-block;
+    font-size: 36px;
+    color: $brand-primary;
+    transition: color 0.2s, transform 0.2s;
+
+    &:hover {
+      color: darken($brand-primary, 10%);
+      transform: scale(1.1);
+      text-decoration: none;
+    }
+  }
+}
+
+.image_rating {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+
+  .rating-stats {
+    margin-bottom: 15px;
+
+    .average_rating,
+    .image_values_count_wrap {
+      display: inline-block;
+      margin: 0 20px;
+      font-size: 16px;
+    }
+
+    .common_ave_value,
+    .image_values_count {
+      color: $brand-primary;
+      font-weight: bold;
+    }
+  }
+
+  .rating-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .rating-stars {
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 10px 0;
+
+    .star-btn {
+      background: none;
+      border: none;
+      padding: 4px 8px;
+      font-size: 34px;
+      cursor: pointer;
+      transition: transform 0.15s;
+
+      &:hover {
+        transform: scale(1.12);
+      }
+
+      // Неактивные звёзды — серые, хорошо видны на белом фоне
+      .fa-star-o {
+        color: #b8b8b8;
+      }
+
+      // Выбранные и при наведении — жёлто-оранжевые
+      &.star-active .fa-star,
+      &:hover .fa-star {
+        color: #f39c12;
+      }
+
+      .fa-star {
+        color: #f39c12;
+      }
+    }
+  }
+
+  .rating-actions {
+    margin-bottom: 10px;
+
+    #submit-rating:disabled {
+      opacity: 0.65;
+    }
+  }
+
+  .rating_message {
+    max-width: 500px;
+    margin: 10px auto 0;
+  }
+}
+
+// Формы входа и регистрации
+.auth-card {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .field {
+    margin-bottom: 18px;
+
+    label {
+      font-weight: 600;
+    }
+
+    input.form-control,
+    input[type='email'],
+    input[type='password'],
+    input[type='text'] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  }
+
+  .actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+// Профиль
+.profile-page {
+  .user-info {
+    text-align: center;
+
+    .gravatar {
+      border-radius: 50%;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .aligned-ratings {
+    .table {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.profile-thumbnail {
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 4px;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .work-page .image-viewer {
+    .img-left-side,
+    .img-right-side {
+      padding: 0 5px;
+    }
+
+    .nav-arrow {
+      font-size: 28px;
+    }
+  }
+
+  .image_rating .rating-stats {
+    .average_rating,
+    .image_values_count_wrap {
+      display: block;
+      margin: 8px 0;
+    }
+  }
 }

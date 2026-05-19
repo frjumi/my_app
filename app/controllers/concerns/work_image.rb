@@ -3,6 +3,13 @@ module WorkImage
 
   PLACEHOLDER_FILE = 'Винкс.jpeg'.freeze
 
+  # Количество оценок по всем изображениям выбранной темы.
+  def theme_values_count(theme_id)
+    return 0 if theme_id.blank?
+
+    Value.joins(:image).where(images: { theme_id: theme_id }).count
+  end
+
   # Возвращает хэш с данными изображения темы или nil, если изображение не найдено.
   def show_image(theme_id, image_index)
     theme_images = Image.theme_images(theme_id).to_a
@@ -19,10 +26,13 @@ module WorkImage
     user_valued = user_value.present? ? 1 : 0
     value = user_value&.value || 0
     common_ave_value = one_image.ave_value || 0
+    image_values_count = Value.where(image_id: image_id).count
 
     {
       index: safe_index,
       values_qty: Value.count,
+      image_values_count: image_values_count,
+      theme_values_count: theme_values_count(theme_id),
       current_user_id: user_id,
       theme_id: theme_id,
       images_arr_size: theme_images.size,

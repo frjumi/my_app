@@ -1,11 +1,13 @@
-%h1= t('.sign_in')
-= form_for(:session, url: signin_path) do |f|
-  .field
-    = f.label :email, t('.email')
-    = f.email_field :email
-  .field
-    = f.label :password, t('.password')
-    = f.password_field :password
-  .actions
-    = f.submit t('.sign_in'), class: "btn btn-primary"
-  %p= link_to t('.new_user'), signup_path
+.auth-card
+  %h1= t('.sign_in')
+  = form_for(:session, url: signin_path) do |f|
+    .field
+      = f.label :email, t('.email')
+      = f.email_field :email, class: 'form-control'
+    .field
+      = f.label :password, t('.password')
+      = f.password_field :password, class: 'form-control'
+    .actions
+      = f.submit t('.sign_in'), class: "btn btn-primary btn-block"
+    %p.text-center
+      = link_to t('.new_user'), signup_path

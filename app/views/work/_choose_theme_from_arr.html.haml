@@ -1,6 +1,7 @@
 .form_select
   = form_tag(display_theme_path, remote: true, format: :js) do
     = select_tag :theme,
-        options_for_select(@themes, selected: @selected_theme),
-        prompt: 'select_theme',
-        onchange: "$(this).parent('form').submit();"
+        options_for_select(@themes),
+        prompt: t('work.index.select_theme_prompt'),
+        class: 'form-control theme-select-dropdown',
+        onchange: "$(this).closest('form').submit();"

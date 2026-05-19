@@ -18,6 +18,8 @@ ru:
       welcome: "Добро пожаловать в приложение"
       signup_now: "Зарегистрируйтесь сейчас!"
       proceed: "Перейти к работе!"
+      themes_count: "Тем для оценки:"
+      images_count: "Изображений для оценки:"
   users:
     form:
       name: "Имя"
@@ -43,8 +45,13 @@ ru:
   work:
     index:
       select_theme: "Выберите тему, чтобы оставить ответ"
-      total_estimates: "Всего оценок:"
-      average_rating: "Средняя оценка:"
+      select_theme_button: "Выбрать тему"
+      select_theme_prompt: "— выберите тему —"
+      welcome_title: "Оценивание превращений Винкс"
+      theme_ratings_count: "Оценок по теме:"
+      total_estimates: "Всего оценок в системе:"
+      average_rating: "Средняя:"
+      ratings_count: "Оценок:"
       your_rating: "Ваша оценка (1–5):"
       default_image: "Изображение по умолчанию"
       prev_image: "Предыдущее изображение"
@@ -52,9 +59,13 @@ ru:
       select_theme_first: "Сначала выберите тему"
       navigation_error: "Не удалось загрузить изображение"
       rating_error: "Не удалось сохранить оценку"
+      submit_rating: "Отправить оценку"
+      change_rating: "Изменить оценку"
+      select_rating_hint: "Выберите оценку"
   api:
     rate_image:
-      success: "Спасибо, ваша оценка сохранена"
+      created: "Ваша оценка сохранена"
+      updated: "Ваша оценка обновлена"
       image_not_found: "Изображение не найдено"
     navigation:
       next_success: "Переход к следующему изображению"

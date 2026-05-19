@@ -1,2 +1,1 @@
-%button.button__left.theme
-  = link_to 'Select theme', choose_theme_path, title: "Select theme from your device folder", remote: true, format: :js
+= link_to t('work.index.select_theme_button'), choose_theme_path, class: 'btn btn-info btn-block btn-select-theme', title: t('work.index.select_theme'), remote: true, format: :js

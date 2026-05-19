@@ -31,13 +31,21 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'html2haml'   # только для конвертации
+  gem 'rspec-rails', '~> 6.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
   gem "web-console"
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'simplecov', require: false
 end

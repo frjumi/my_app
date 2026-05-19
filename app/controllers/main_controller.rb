@@ -1,5 +1,7 @@
 class MainController < ApplicationController
   def index
+    @themes_count = Theme.count
+    @images_count = Image.count
   end
 
   def help

@@ -13,6 +13,9 @@ module WorkHelper
     @image_data[:user_valued] = data[:user_valued]
     @image_data[:value] = data[:value]
     @image_data[:common_ave_value] = data[:common_ave_value]
+    @image_data[:image_values_count] = data[:image_values_count]
+    @image_data[:theme_values_count] = data[:theme_values_count]
+    @image_data[:idle] = data[:idle]
     @image_data
   end
 end

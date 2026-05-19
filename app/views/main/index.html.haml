@@ -1,6 +1,13 @@
 .center.jumbotron
   %h1= t('.welcome')
+  .main-stats
+    %p.lead
+      %span.stat-label= t('.themes_count')
+      %strong= @themes_count
+    %p.lead
+      %span.stat-label= t('.images_count')
+      %strong= @images_count
   - if signed_in?
-    = link_to t('.proceed'), work_path, class: "btn btn-primary"
+    = link_to t('.proceed'), work_path, class: "btn btn-primary btn-lg"
   - else
-    = link_to t('.signup_now'), signup_path, class: "btn btn-primary"
+    = link_to t('.signup_now'), signup_path, class: "btn btn-primary btn-lg"

@@ -1,17 +1,11 @@
-// Скрыть области, показать форму выбора темы
-$('.image .image_display .image_diag').css({"display": "none"});
-$('.img-left-side').css({"display": "none"});
-$('.img-right-side').css({"display": "none"});
-
-// Обработчик клика вне области выбора темы
-$(document).click(function(e){
-    if($(e.target).is(".select_theme") || $(e.target).closest(".select_theme").length) {
-        console.log("In doc.click = IN side content area");
-    } else {
-        console.log("In doc.click = OUT side content area");
-        $('.form_select').css({"display": "none"});
-        $('.select_theme').empty().html("<%= j render 'work/button_theme_select' %>");
-    }
-});
-
+// Показать форму выбора темы в боковой панели (не перекрывает изображение)
+$('.img-left-side, .img-right-side').hide();
 $('.select_theme').empty().html("<%= j render 'work/choose_theme_from_arr' %>");
+
+$(document).off('click.workThemeSelect').on('click.workThemeSelect', function(e) {
+  if ($(e.target).closest('.select_theme-wrapper').length) {
+    return;
+  }
+  $('.form_select').hide();
+  $('.select_theme').empty().html("<%= j render 'work/button_theme_select' %>");
+});

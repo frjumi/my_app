@@ -1,44 +1,65 @@
 var valuesQty = '<%= @image_data[:values_qty] %>';
 $('.total_values_count').text(valuesQty);
+$('.theme_values_count').text('<%= @image_data[:theme_values_count] || 0 %>');
 
 var selectedTheme = '<%= j @image_data[:theme] %>';
 var emptyTheme = '<%= j t("work.index.select_theme") %>';
+var isIdle = <%= @image_data[:idle] ? 'true' : 'false' %>;
 
-if (selectedTheme === emptyTheme || selectedTheme === '') {
-  $('.img-left-side').hide();
-  $('.img-right-side').hide();
+if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
+  $('#work-area').addClass('work-idle');
+  $('.img-left-side, .img-right-side').hide();
   $('.image_rating').hide();
+  $('.welcome-title').show();
+  $('.image-title').hide().text('');
+  $('.image_display h2.up-theme').text(selectedTheme);
+
+  var welcomeImage = $('#work-area').data('welcome-image');
+  var $img = $('.img-center img');
+  $img.off('error.workImage').attr({
+    src: welcomeImage,
+    alt: '<%= j t("work.index.welcome_title") %>',
+    title: '<%= j t("work.index.welcome_title") %>'
+  });
 } else {
-  $('.img-left-side').show();
-  $('.img-right-side').show();
+  $('#work-area').removeClass('work-idle');
+  $('.img-left-side, .img-right-side').show();
   $('.image_rating').show();
+  $('.welcome-title').hide();
+  $('.image-title').show();
+  $('.image_display h2.up-theme').text(selectedTheme);
+
+  var oneImageName = '<%= j @image_data[:name] %>';
+  var pathImage = "<%= asset_path('pictures/' + @image_data[:file]) %>";
+  var placeholderUrl = "<%= asset_path('pictures/' + WorkImage::PLACEHOLDER_FILE) %>";
+
+  $('.image-title').text(oneImageName);
+
+  var $img = $('.img-center img');
+  $img.off('error.workImage').on('error.workImage', function() {
+    $(this).attr('src', placeholderUrl);
+  });
+  $img.attr({ alt: oneImageName, src: pathImage, title: oneImageName });
+
+  window.imageCurrentIndex = <%= @image_data[:index] || 0 %>;
+  window.selectedThemeId   = <%= @image_data[:theme_id] || 0 %>;
+  window.themeImagesSize   = <%= @image_data[:images_arr_size] || 0 %>;
+  window.currentImageId    = <%= @image_data[:image_id].present? ? @image_data[:image_id] : 'null' %>;
+
+  if (window.WorkRating) {
+    window.WorkRating.applyRatingState({
+      image_id: window.currentImageId,
+      common_ave_value: <%= @image_data[:common_ave_value].to_f %>,
+      new_average: <%= @image_data[:common_ave_value].to_f %>,
+      image_values_count: <%= @image_data[:image_values_count] || 0 %>,
+      new_total_values: <%= @image_data[:image_values_count] || 0 %>,
+      theme_values_count: <%= @image_data[:theme_values_count] || 0 %>,
+      user_valued: <%= @image_data[:user_valued].to_i %>,
+      user_value: <%= @image_data[:value].to_i %>,
+      value: <%= @image_data[:value].to_i %>
+    });
+  }
 }
 
-$('.image_display h2.up-theme').text(selectedTheme);
 $('.select_theme').empty().html("<%= j render 'work/button_theme_select' %>");
-
-var oneImageName = '<%= j @image_data[:name] %>';
-var pathImage = "<%= asset_path('pictures/' + @image_data[:file]) %>";
-var placeholderUrl = "<%= asset_path('pictures/' + WorkImage::PLACEHOLDER_FILE) %>";
-
-$('.image_display h2.up').text(oneImageName);
-
-var $img = $('.img-center img');
-$img.off('error.workImage').on('error.workImage', function() {
-  $(this).attr('src', placeholderUrl);
-});
-$img.attr({ alt: oneImageName, src: pathImage, title: oneImageName });
-
-window.imageCurrentIndex = <%= @image_data[:index] || 0 %>;
-window.selectedThemeId   = <%= @image_data[:theme_id] || 0 %>;
-window.themeImagesSize   = <%= @image_data[:images_arr_size] || 0 %>;
-window.currentImageId    = <%= @image_data[:image_id].present? ? @image_data[:image_id] : 'null' %>;
-
-$('.common_ave_value').text('<%= @image_data[:common_ave_value].to_f > 0 ? sprintf("%.2f", @image_data[:common_ave_value].to_f) : "—" %>');
-
-$('.rating-star').prop('checked', false);
-<% if @image_data[:user_valued].to_i == 1 && @image_data[:value].to_i > 0 %>
-$('.rating-star[value="<%= @image_data[:value] %>"]').prop('checked', true);
-<% end %>
-
 $('.rating_message').hide();
