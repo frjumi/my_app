@@ -2,6 +2,8 @@
 *.rbc
 /.config
 /coverage/
+/storage/*
+!/storage/.keep
 /brakeman/
 /InstalledFiles
 /pkg/

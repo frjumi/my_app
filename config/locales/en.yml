@@ -144,6 +144,15 @@ en:
       update: "Update user"
     profile:
       email: "Email"
+      avatar_label: "Choose an image"
+      avatar_hint: "JPG, PNG, GIF or WebP, max 2 MB"
+      upload_avatar: "Save avatar"
+      remove_avatar: "Remove avatar"
+      remove_avatar_confirm: "Remove uploaded avatar?"
+      avatar_updated: "Avatar updated"
+      avatar_removed: "Avatar removed, using Gravatar"
+      avatar_too_large: "file is too large (max 2 MB)"
+      avatar_invalid_type: "only JPG, PNG, GIF, WebP images are allowed"
       total_ratings: "Total ratings given:"
       aligned_ratings_title: "Ratings aligned with community opinion"
       image_name: "Image"
@@ -171,6 +180,7 @@ en:
       submit_rating: "Submit rating"
       change_rating: "Change rating"
       select_rating_hint: "Select a rating"
+      no_images_in_theme: "No images in this theme yet"
   api:
     rate_image:
       created: "Your rating has been saved"

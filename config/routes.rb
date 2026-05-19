@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   end
 
   get 'profile', to: 'users#profile'
+  patch 'profile/avatar', to: 'users#update_avatar', as: 'profile_avatar'
+  delete 'profile/avatar', to: 'users#remove_avatar', as: 'remove_profile_avatar'
 
   # work routes
   get 'work', to: 'work#index', as: 'work'

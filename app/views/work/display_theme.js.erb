@@ -26,8 +26,16 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
   }
 } else {
   $('#work-area').removeClass('work-idle');
-  $('.img-left-side, .img-right-side').show();
-  $('.image_rating').show();
+  var imagesSize = <%= @image_data[:images_arr_size] || 0 %>;
+  var hasImages = imagesSize > 0 && <%= @image_data[:image_id].present? ? 'true' : 'false' %>;
+
+  if (hasImages) {
+    $('.img-left-side, .img-right-side').show();
+    $('.image_rating').show();
+  } else {
+    $('.img-left-side, .img-right-side').hide();
+    $('.image_rating').hide();
+  }
   $('.welcome-title').hide();
   $('.image-title').show().text('<%= j @image_data[:name] %>');
   $('.image_display h2.up-theme').text(selectedTheme);
@@ -45,8 +53,7 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
     title: '<%= j @image_data[:name] %>'
   });
 
-  var themeId = <%= @image_data[:theme_id] %>;
-  var imagesSize = <%= @image_data[:images_arr_size] %>;
+  var themeId = <%= @image_data[:theme_id] || 'null' %>;
   var imageIndex = <%= @image_data[:index] || 0 %>;
   var imageId = <%= @image_data[:image_id].present? ? @image_data[:image_id] : 'null' %>;
 
