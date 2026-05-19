@@ -1,3 +1,21 @@
-%h1 Main#contacts
-%p Find me in app/views/main/contacts.html.haml
-%p= link_to 'Back to main', root_path
+.contacts-page
+  %h1= t('.title')
+  .panel.panel-default.contacts-card
+    .panel-body
+      %ul.list-group.contact-list
+        %li.list-group-item
+          %i.fa.fa-user
+          %strong= t('.full_name_label')
+          = t('.full_name')
+        %li.list-group-item
+          %i.fa.fa-users
+          %strong= t('.group_label')
+          = t('.group')
+        %li.list-group-item
+          %i.fa.fa-envelope
+          %strong= t('.edu_email_label')
+          = mail_to t('.edu_email'), t('.edu_email')
+        %li.list-group-item
+          %i.fa.fa-envelope-o
+          %strong= t('.personal_email_label')
+          = mail_to t('.personal_email'), t('.personal_email')

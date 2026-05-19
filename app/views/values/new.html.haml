@@ -1,5 +1,7 @@
-%h1 New value
-
-= render 'form'
-
-= link_to 'Back', values_path
+.values-new
+  %h1= t('.title')
+  - if @unrated_images.any?
+    = render 'form'
+  - else
+    %p.alert.alert-info= t('.no_unrated')
+  %p= link_to t('.back'), values_path, class: 'btn btn-default'

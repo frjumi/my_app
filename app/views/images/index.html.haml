@@ -1,27 +1,28 @@
-%h1 Listing images
+.images-index
+  .page-header.clearfix
+    %h1.pull-left= t('.title')
+    = link_to t('.add_image'), new_image_path, class: 'btn btn-primary pull-right'
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th File
-      %th Ave value
-      %th Theme
-      %th
-      %th
-      %th
-
-  %tbody
-    - @images.each do |image|
+  %table.table.table-striped.table-bordered
+    %thead
       %tr
-        %td= image.name
-        %td= image.file
-        %td= image.ave_value
-        %td= image.theme_id
-        %td= link_to 'Show', image
-        %td= link_to 'Edit', edit_image_path(image)
-        %td= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }
+        %th= t('.name')
+        %th= t('.theme')
+        %th= t('.ratings_count')
+        %th= t('.average')
+        %th= t('.my_rating')
+        %th= t('.actions')
+    %tbody
+      - @images.each do |image|
+        %tr
+          %td= image.name
+          %td= image.theme&.name || t('.no_theme')
+          %td= image.values.size
+          %td= image_average_display(image)
+          %td= user_rating_display(image, @user_ratings)
+          %td.actions-cell
+            = link_to t('.edit'), edit_image_path(image), class: 'btn btn-sm btn-default'
+            = link_to t('.destroy'), image_path(image), method: :delete, data: { confirm: t('.confirm_destroy') }, class: 'btn btn-sm btn-danger'
 
-%br
-
-= link_to 'New Image', new_image_path
+  - if @images.empty?
+    %p.alert.alert-info= t('.empty')

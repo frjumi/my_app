@@ -239,6 +239,59 @@ footer {
   }
 }
 
+// Списки CRUD (изображения, темы, оценки)
+.images-index,
+.themes-index,
+.values-index {
+  .page-header {
+    margin-bottom: 20px;
+  }
+
+  .actions-cell {
+    white-space: nowrap;
+
+    .btn {
+      margin-right: 4px;
+    }
+  }
+
+  .unrated-list li {
+    margin-bottom: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// Контакты
+.contacts-page {
+  max-width: 600px;
+  margin: 0 auto;
+
+  .contacts-card {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact-list {
+    .list-group-item {
+      font-size: 16px;
+
+      i.fa {
+        width: 24px;
+        margin-right: 10px;
+        color: $brand-primary;
+      }
+
+      strong {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
 // Сообщение об ошибке входа
 .flash-alert {
   font-size: 0.9em;

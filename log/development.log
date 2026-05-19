@@ -9640,3 +9640,400 @@ Processing by ValuesController#show as HTML
 Completed 200 OK in 45ms (Views: 39.4ms | ActiveRecord: 0.7ms | Allocations: 33559)
 
 
+Started GET "/" for 127.0.0.1 at 2026-05-19 08:31:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  [1m[36mTheme Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "themes"[0m
+  ↳ app/controllers/main_controller.rb:3:in `index'
+  [1m[36mImage Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/main_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 110.8ms | Allocations: 27806)
+  Rendered shared/_header.html.haml (Duration: 15.9ms | Allocations: 17254)
+  Rendered shared/_footer.html.haml (Duration: 3.5ms | Allocations: 4599)
+  Rendered layout layouts/application.html.haml (Duration: 2292.3ms | Allocations: 271133)
+Completed 200 OK in 2380ms (Views: 2294.2ms | ActiveRecord: 13.6ms | Allocations: 290047)
+
+
+Started GET "/work?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:11 +0300
+Processing by WorkController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mValue Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/work_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering work/index.html.haml within layouts/application
+  Rendered work/_button_theme_select.html.haml (Duration: 2.8ms | Allocations: 3400)
+  Rendered work/index.html.haml within layouts/application (Duration: 29.0ms | Allocations: 33466)
+  Rendered shared/_header.html.haml (Duration: 3.0ms | Allocations: 1702)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 54.8ms | Allocations: 58452)
+Completed 200 OK in 75ms (Views: 55.9ms | ActiveRecord: 3.5ms | Allocations: 61874)
+
+
+Started GET "/choose_theme?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:13 +0300
+Processing by WorkController#choose_theme as JS
+  Parameters: {"locale"=>"ru"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Pluck (0.3ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:16:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 4.0ms | Allocations: 4209)
+  Rendered work/_button_theme_select.html.haml (Duration: 2.8ms | Allocations: 3323)
+  Rendered work/choose_theme.js.erb (Duration: 8.8ms | Allocations: 8143)
+Completed 200 OK in 19ms (Views: 9.7ms | ActiveRecord: 0.6ms | Allocations: 9850)
+
+
+Started POST "/display_theme?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:15 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из превращений Блум Вам нравится больше?", "locale"=>"ru"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Load (1.6ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из превращений Блум Вам нравится больше?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:42:in `display_theme'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mValue Load (0.3ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:25:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 3]]
+  ↳ app/controllers/concerns/work_image.rb:29:in `show_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:33:in `show_image'
+  [1m[36mValue Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" INNER JOIN "images" ON "images"."id" = "values"."image_id" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:10:in `theme_values_count'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.2ms | Allocations: 124)
+  Rendered work/display_theme.js.erb (Duration: 3.4ms | Allocations: 3678)
+Completed 200 OK in 47ms (Views: 3.8ms | ActiveRecord: 8.1ms | Allocations: 22932)
+
+
+Started POST "/api/rate_image" for 127.0.0.1 at 2026-05-19 08:31:20 +0300
+Processing by Api::ApiController#rate_image as JSON
+  Parameters: {"image_id"=>"3", "value"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/api_controller.rb:19:in `rate_image'
+  [1m[36mValue Load (0.4ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/api_controller.rb:21:in `rate_image'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/api_controller.rb:25:in `rate_image'
+  [1m[36mValue Update (0.4ms)[0m  [1m[33mUPDATE "values" SET "value" = $1, "updated_at" = $2 WHERE "values"."id" = $3[0m  [["value", 5], ["updated_at", "2026-05-19 05:31:20.214027"], ["id", 2]]
+  ↳ app/controllers/api/api_controller.rb:25:in `rate_image'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/value.rb:15:in `recalculate_image_average'
+  [1m[36mValue Average (0.9ms)[0m  [1m[34mSELECT AVG("values"."value") FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 3]]
+  ↳ app/models/image.rb:9:in `recalculate_ave_value!'
+  [1m[36mImage Update (0.4ms)[0m  [1m[33mUPDATE "images" SET "ave_value" = $1, "updated_at" = $2 WHERE "images"."id" = $3[0m  [["ave_value", 5.0], ["updated_at", "2026-05-19 05:31:20.221839"], ["id", 3]]
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/api_controller.rb:25:in `rate_image'
+  [1m[36mValue Average (0.3ms)[0m  [1m[34mSELECT AVG("values"."value") FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 3]]
+  ↳ app/models/image.rb:9:in `recalculate_ave_value!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mImage Update (1.2ms)[0m  [1m[33mUPDATE "images" SET "ave_value" = $1, "updated_at" = $2 WHERE "images"."id" = $3[0m  [["ave_value", 5.0], ["updated_at", "2026-05-19 05:31:20.226949"], ["id", 3]]
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/api_controller.rb:27:in `rate_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 3]]
+  ↳ app/controllers/api/api_controller.rb:34:in `rate_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" INNER JOIN "images" ON "images"."id" = "values"."image_id" WHERE "images"."theme_id" = $1[0m  [["theme_id", 2]]
+  ↳ app/controllers/concerns/work_image.rb:10:in `theme_values_count'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 48ms (Views: 4.3ms | ActiveRecord: 11.6ms | Allocations: 30641)
+
+
+Started GET "/choose_theme?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:22 +0300
+Processing by WorkController#choose_theme as JS
+  Parameters: {"locale"=>"ru"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Pluck (0.7ms)[0m  [1m[34mSELECT "themes"."name" FROM "themes"[0m
+  ↳ app/controllers/work_controller.rb:16:in `choose_theme'
+  Rendering work/choose_theme.js.erb
+  Rendered work/_choose_theme_from_arr.html.haml (Duration: 0.7ms | Allocations: 256)
+  Rendered work/_button_theme_select.html.haml (Duration: 0.2ms | Allocations: 114)
+  Rendered work/choose_theme.js.erb (Duration: 1.9ms | Allocations: 660)
+Completed 200 OK in 10ms (Views: 2.6ms | ActiveRecord: 1.5ms | Allocations: 1985)
+
+
+Started POST "/display_theme?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:25 +0300
+Processing by WorkController#display_theme as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "theme"=>"Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?", "locale"=>"ru"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?"], ["LIMIT", 1]]
+  ↳ app/controllers/work_controller.rb:42:in `display_theme'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images"."id", "images"."name", "images"."file", "images"."ave_value" FROM "images" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:15:in `show_image'
+  [1m[36mValue Load (0.3ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/work_image.rb:25:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:29:in `show_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values"[0m
+  ↳ app/controllers/concerns/work_image.rb:33:in `show_image'
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" INNER JOIN "images" ON "images"."id" = "values"."image_id" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:10:in `theme_values_count'
+  Rendering work/display_theme.js.erb
+  Rendered work/_button_theme_select.html.haml (Duration: 0.2ms | Allocations: 123)
+  Rendered work/display_theme.js.erb (Duration: 1.8ms | Allocations: 2819)
+Completed 200 OK in 11ms (Views: 2.3ms | ActiveRecord: 2.1ms | Allocations: 6522)
+
+
+Started POST "/api/rate_image" for 127.0.0.1 at 2026-05-19 08:31:32 +0300
+Processing by Api::ApiController#rate_image as JSON
+  Parameters: {"image_id"=>"4", "value"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/api_controller.rb:19:in `rate_image'
+  [1m[36mValue Load (0.6ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" = $2 LIMIT $3[0m  [["user_id", 1], ["image_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/api_controller.rb:21:in `rate_image'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/api_controller.rb:25:in `rate_image'
+  [1m[36mValue Update (2.3ms)[0m  [1m[33mUPDATE "values" SET "value" = $1, "updated_at" = $2 WHERE "values"."id" = $3[0m  [["value", 5], ["updated_at", "2026-05-19 05:31:32.578684"], ["id", 4]]
+  ↳ app/controllers/api/api_controller.rb:25:in `rate_image'
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/value.rb:15:in `recalculate_image_average'
+  [1m[36mValue Average (0.3ms)[0m  [1m[34mSELECT AVG("values"."value") FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 4]]
+  ↳ app/models/image.rb:9:in `recalculate_ave_value!'
+  [1m[36mImage Update (0.4ms)[0m  [1m[33mUPDATE "images" SET "ave_value" = $1, "updated_at" = $2 WHERE "images"."id" = $3[0m  [["ave_value", 5.0], ["updated_at", "2026-05-19 05:31:32.585997"], ["id", 4]]
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/api_controller.rb:25:in `rate_image'
+  [1m[36mValue Average (0.4ms)[0m  [1m[34mSELECT AVG("values"."value") FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 4]]
+  ↳ app/models/image.rb:9:in `recalculate_ave_value!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mImage Update (1.2ms)[0m  [1m[33mUPDATE "images" SET "ave_value" = $1, "updated_at" = $2 WHERE "images"."id" = $3[0m  [["ave_value", 5.0], ["updated_at", "2026-05-19 05:31:32.603615"], ["id", 4]]
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/image.rb:10:in `recalculate_ave_value!'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/api_controller.rb:27:in `rate_image'
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 4]]
+  ↳ app/controllers/api/api_controller.rb:34:in `rate_image'
+  [1m[36mValue Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" INNER JOIN "images" ON "images"."id" = "values"."image_id" WHERE "images"."theme_id" = $1[0m  [["theme_id", 4]]
+  ↳ app/controllers/concerns/work_image.rb:10:in `theme_values_count'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 46ms (Views: 0.6ms | ActiveRecord: 23.5ms | Allocations: 9128)
+
+
+Started GET "/themes?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:35 +0300
+Processing by ThemesController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering layout layouts/application.html.haml
+  Rendering themes/index.html.haml within layouts/application
+  [1m[36mTheme Load (1.0ms)[0m  [1m[34mSELECT "themes".* FROM "themes" ORDER BY "themes"."name" ASC[0m
+  ↳ app/views/themes/index.html.haml:13
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."theme_id" IN ($1, $2, $3, $4)[0m  [["theme_id", 1], ["theme_id", 2], ["theme_id", 4], ["theme_id", 3]]
+  ↳ app/views/themes/index.html.haml:13
+  Rendered themes/index.html.haml within layouts/application (Duration: 29.9ms | Allocations: 18189)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 3.9ms | Allocations: 2148)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 59.0ms | Allocations: 43756)
+Completed 200 OK in 61ms (Views: 58.0ms | ActiveRecord: 1.7ms | Allocations: 44543)
+
+
+Started GET "/values?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:40 +0300
+Processing by ValuesController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendering layout layouts/application.html.haml
+  Rendering values/index.html.haml within layouts/application
+  [1m[36mImage Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "images" WHERE "images"."id" NOT IN (SELECT "values"."image_id" FROM "values" WHERE "values"."user_id" = $1) LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/values/index.html.haml:4
+  [1m[36mCACHE Image Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "images" WHERE "images"."id" NOT IN (SELECT "values"."image_id" FROM "values" WHERE "values"."user_id" = $1) LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/values/index.html.haml:7
+  [1m[36mValue Load (0.4ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 ORDER BY "values"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/values/index.html.haml:27
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" IN ($1, $2, $3, $4)[0m  [["id", 4], ["id", 2], ["id", 3], ["id", 1]]
+  ↳ app/views/values/index.html.haml:27
+  [1m[36mTheme Load (0.3ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" IN ($1, $2)[0m  [["id", 2], ["id", 4]]
+  ↳ app/views/values/index.html.haml:27
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 4]]
+  ↳ app/views/values/index.html.haml:31
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 2]]
+  ↳ app/views/values/index.html.haml:31
+  [1m[36mValue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 3]]
+  ↳ app/views/values/index.html.haml:31
+  [1m[36mValue Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 1]]
+  ↳ app/views/values/index.html.haml:31
+  Rendered values/index.html.haml within layouts/application (Duration: 27.2ms | Allocations: 22369)
+  Rendered shared/_header.html.haml (Duration: 2.2ms | Allocations: 1730)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 52.4ms | Allocations: 47514)
+Completed 200 OK in 56ms (Views: 50.1ms | ActiveRecord: 3.2ms | Allocations: 49092)
+
+
+Started GET "/values/3/edit?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:43 +0300
+Processing by ValuesController#edit as HTML
+  Parameters: {"locale"=>"ru", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mValue Load (0.5ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/values_controller.rb:63:in `set_value'
+  Rendering layout layouts/application.html.haml
+  Rendering values/edit.html.haml within layouts/application
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/values/edit.html.haml:2
+  Rendered values/edit.html.haml within layouts/application (Duration: 20.9ms | Allocations: 10254)
+  Rendered shared/_header.html.haml (Duration: 1.7ms | Allocations: 1748)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 43.9ms | Allocations: 35404)
+Completed 200 OK in 52ms (Views: 43.9ms | ActiveRecord: 1.4ms | Allocations: 38032)
+
+
+Started GET "/values?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:45 +0300
+Processing by ValuesController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendering layout layouts/application.html.haml
+  Rendering values/index.html.haml within layouts/application
+  [1m[36mImage Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "images" WHERE "images"."id" NOT IN (SELECT "values"."image_id" FROM "values" WHERE "values"."user_id" = $1) LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/values/index.html.haml:4
+  [1m[36mCACHE Image Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "images" WHERE "images"."id" NOT IN (SELECT "values"."image_id" FROM "values" WHERE "values"."user_id" = $1) LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/values/index.html.haml:7
+  [1m[36mValue Load (0.6ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 ORDER BY "values"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/values/index.html.haml:27
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" IN ($1, $2, $3, $4)[0m  [["id", 4], ["id", 2], ["id", 3], ["id", 1]]
+  ↳ app/views/values/index.html.haml:27
+  [1m[36mTheme Load (0.8ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" IN ($1, $2)[0m  [["id", 2], ["id", 4]]
+  ↳ app/views/values/index.html.haml:27
+  [1m[36mValue Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 4]]
+  ↳ app/views/values/index.html.haml:31
+  [1m[36mValue Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 2]]
+  ↳ app/views/values/index.html.haml:31
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 3]]
+  ↳ app/views/values/index.html.haml:31
+  [1m[36mValue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "values" WHERE "values"."image_id" = $1[0m  [["image_id", 1]]
+  ↳ app/views/values/index.html.haml:31
+  Rendered values/index.html.haml within layouts/application (Duration: 25.8ms | Allocations: 6605)
+  Rendered shared/_header.html.haml (Duration: 3.3ms | Allocations: 1730)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 58.0ms | Allocations: 31501)
+Completed 200 OK in 62ms (Views: 52.5ms | ActiveRecord: 6.4ms | Allocations: 32643)
+
+
+Started GET "/images?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:46 +0300
+Processing by ImagesController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images".* FROM "images" ORDER BY "images"."name" ASC[0m
+  ↳ app/controllers/images_controller.rb:68:in `map'
+  [1m[36mTheme Load (0.5ms)[0m  [1m[34mSELECT "themes".* FROM "themes" WHERE "themes"."id" IN ($1, $2)[0m  [["id", 2], ["id", 4]]
+  ↳ app/controllers/images_controller.rb:68:in `map'
+  [1m[36mValue Load (0.9ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."image_id" IN ($1, $2, $3, $4)[0m  [["image_id", 1], ["image_id", 4], ["image_id", 2], ["image_id", 3]]
+  ↳ app/controllers/images_controller.rb:68:in `map'
+  [1m[36mValue Load (0.8ms)[0m  [1m[34mSELECT "values".* FROM "values" WHERE "values"."user_id" = $1 AND "values"."image_id" IN ($2, $3, $4, $5)[0m  [["user_id", 1], ["image_id", 1], ["image_id", 4], ["image_id", 2], ["image_id", 3]]
+  ↳ app/controllers/images_controller.rb:68:in `load_user_ratings'
+  Rendering layout layouts/application.html.haml
+  Rendering images/index.html.haml within layouts/application
+  Rendered images/index.html.haml within layouts/application (Duration: 13.1ms | Allocations: 13734)
+  Rendered shared/_header.html.haml (Duration: 1.7ms | Allocations: 1730)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 34.2ms | Allocations: 38880)
+Completed 200 OK in 52ms (Views: 35.0ms | ActiveRecord: 2.8ms | Allocations: 42805)
+
+
+Started GET "/main/about?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:54 +0300
+Processing by MainController#about as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 3.2ms | Allocations: 2855)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 3.9ms | Allocations: 2160)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 30.1ms | Allocations: 28177)
+Completed 200 OK in 37ms (Views: 30.7ms | ActiveRecord: 0.3ms | Allocations: 28651)
+
+
+Started GET "/main/contacts?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:56 +0300
+Processing by MainController#contacts as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering layout layouts/application.html.haml
+  Rendering main/contacts.html.haml within layouts/application
+  Rendered main/contacts.html.haml within layouts/application (Duration: 14.3ms | Allocations: 9693)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 3.4ms | Allocations: 2163)
+  Rendered shared/_footer.html.haml (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 39.1ms | Allocations: 35259)
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.2ms | Allocations: 35752)
+
+
+Started GET "/main/about?locale=ru" for 127.0.0.1 at 2026-05-19 08:31:59 +0300
+Processing by MainController#about as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 0.0ms | Allocations: 7)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 4.9ms | Allocations: 2160)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 29.5ms | Allocations: 25328)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.3ms | Allocations: 25745)
+
+
+Started GET "/?locale=ru" for 127.0.0.1 at 2026-05-19 08:32:01 +0300
+Processing by MainController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mTheme Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "themes"[0m
+  ↳ app/controllers/main_controller.rb:3:in `index'
+  [1m[36mImage Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  ↳ app/controllers/main_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering main/index.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered main/index.html.haml within layouts/application (Duration: 2.2ms | Allocations: 609)
+  Rendered shared/_header.html.haml (Duration: 1.8ms | Allocations: 1730)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 34.7ms | Allocations: 25740)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 1.6ms | Allocations: 26959)
+
+
+Started GET "/main/help?locale=ru" for 127.0.0.1 at 2026-05-19 08:32:03 +0300
+Processing by MainController#help as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering layout layouts/application.html.haml
+  Rendering main/help.html.haml within layouts/application
+  Rendered main/help.html.haml within layouts/application (Duration: 4.6ms | Allocations: 3341)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 4.2ms | Allocations: 2146)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.haml (Duration: 36.9ms | Allocations: 28887)
+Completed 200 OK in 43ms (Views: 37.4ms | ActiveRecord: 0.2ms | Allocations: 29350)
+
+
+Started GET "/main/about?locale=ru" for 127.0.0.1 at 2026-05-19 08:32:04 +0300
+Processing by MainController#about as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering layout layouts/application.html.haml
+  Rendering main/about.html.haml within layouts/application
+  Rendered main/about.html.haml within layouts/application (Duration: 0.0ms | Allocations: 7)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT $2[0m  [["remember_token", "da478a2cdf865d89a4a2777ec73728fccfeea1a3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:15:in `current_user'
+  Rendered shared/_header.html.haml (Duration: 5.3ms | Allocations: 2160)
+  Rendered shared/_footer.html.haml (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.haml (Duration: 28.9ms | Allocations: 25327)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.4ms | Allocations: 25752)
+
+

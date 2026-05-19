@@ -14,12 +14,97 @@ ru:
       sign_up: "Регистрация"
       my_page: "Моя страница"
   main:
+    contacts:
+      title: "Контакты"
+      full_name_label: "ФИО:"
+      full_name: "Фролова Юлия Михайловна"
+      group_label: "Группа:"
+      group: "5130904/50401"
+      edu_email_label: "Учебная почта:"
+      edu_email: "frolova.yum@edu.sbpstu.ru"
+      personal_email_label: "Личная почта:"
+      personal_email: "Frolova.Y.M@mail.ru"
     index:
       welcome: "Добро пожаловать в приложение"
       signup_now: "Зарегистрируйтесь сейчас!"
       proceed: "Перейти к работе!"
       themes_count: "Тем для оценки:"
       images_count: "Изображений для оценки:"
+  images:
+    index:
+      title: "Изображения"
+      add_image: "Добавить изображение"
+      name: "Название"
+      theme: "Тема"
+      ratings_count: "Количество оценок"
+      average: "Средняя оценка"
+      my_rating: "Моя оценка"
+      actions: "Действия"
+      edit: "Редактировать"
+      destroy: "Удалить"
+      no_theme: "—"
+      no_average: "—"
+      no_rating: "—"
+      confirm_destroy: "Удалить изображение?"
+      empty: "Изображений пока нет."
+    flash:
+      created: "Изображение создано"
+      updated: "Изображение обновлено"
+      destroyed: "Изображение удалено"
+  themes:
+    index:
+      title: "Темы"
+      add_theme: "Добавить тему"
+      name: "Название"
+      images_count: "Количество изображений"
+      actions: "Действия"
+      edit: "Редактировать"
+      destroy: "Удалить"
+      confirm_destroy: "Удалить тему? Связанные изображения останутся без темы."
+      empty: "Тем пока нет."
+    flash:
+      created: "Тема создана"
+      updated: "Тема обновлена"
+      destroyed: "Тема удалена"
+  values:
+    index:
+      title: "Мои оценки"
+      add_rating: "Добавить оценку"
+      unrated_images_title: "Изображения без вашей оценки"
+      add_for_image: "Добавить"
+      image: "Изображение"
+      your_rating: "Ваша оценка"
+      total_ratings: "Всего оценок"
+      average: "Средняя оценка"
+      actions: "Действия"
+      edit: "Изменить"
+      destroy: "Удалить"
+      no_average: "—"
+      confirm_destroy: "Удалить оценку?"
+      empty: "У вас пока нет оценок."
+    new:
+      title: "Новая оценка"
+      back: "Назад к списку"
+      no_unrated: "Вы оценили все доступные изображения."
+    edit:
+      title: "Изменить оценку: %{image}"
+      back: "Назад"
+    form:
+      image: "Изображение"
+      rating: "Оценка (1–5)"
+      select_image: "Выберите изображение"
+      select_rating: "Выберите оценку"
+      save: "Сохранить"
+      errors_title:
+        one: "1 ошибка:"
+        few: "%{count} ошибки:"
+        many: "%{count} ошибок:"
+        other: "%{count} ошибки:"
+    flash:
+      created: "Оценка сохранена"
+      updated: "Оценка обновлена"
+      destroyed: "Оценка удалена"
+      access_denied: "Доступ запрещён"
   users:
     form:
       name: "Имя"

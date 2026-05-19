@@ -1,23 +1,22 @@
-%h1 Listing themes
+.themes-index
+  .page-header.clearfix
+    %h1.pull-left= t('.title')
+    = link_to t('.add_theme'), new_theme_path, class: 'btn btn-primary pull-right'
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Qty items
-      %th
-      %th
-      %th
-
-  %tbody
-    - @themes.each do |theme|
+  %table.table.table-striped.table-bordered
+    %thead
       %tr
-        %td= theme.name
-        %td= theme.qty_items
-        %td= link_to 'Show', theme
-        %td= link_to 'Edit', edit_theme_path(theme)
-        %td= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' }
+        %th= t('.name')
+        %th= t('.images_count')
+        %th= t('.actions')
+    %tbody
+      - @themes.each do |theme|
+        %tr
+          %td= theme.name
+          %td= theme.images.size
+          %td.actions-cell
+            = link_to t('.edit'), edit_theme_path(theme), class: 'btn btn-sm btn-default'
+            = link_to t('.destroy'), theme_path(theme), method: :delete, data: { confirm: t('.confirm_destroy') }, class: 'btn btn-sm btn-danger'
 
-%br
-
-= link_to 'New Theme', new_theme_path
+  - if @themes.empty?
+    %p.alert.alert-info= t('.empty')

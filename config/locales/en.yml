@@ -14,12 +14,95 @@ en:
       sign_up: "Sign up"
       my_page: "My page"
   main:
+    contacts:
+      title: "Contacts"
+      full_name_label: "Full name:"
+      full_name: "Frolova Yulia Mikhailovna"
+      group_label: "Group:"
+      group: "5130904/50401"
+      edu_email_label: "University email:"
+      edu_email: "frolova.yum@edu.sbpstu.ru"
+      personal_email_label: "Personal email:"
+      personal_email: "Frolova.Y.M@mail.ru"
     index:
       welcome: "Welcome to the App"
       signup_now: "Sign up now!"
       proceed: "Proceed to work!"
       themes_count: "Themes to rate:"
       images_count: "Images to rate:"
+  images:
+    index:
+      title: "Images"
+      add_image: "Add image"
+      name: "Name"
+      theme: "Theme"
+      ratings_count: "Ratings count"
+      average: "Average rating"
+      my_rating: "My rating"
+      actions: "Actions"
+      edit: "Edit"
+      destroy: "Delete"
+      no_theme: "—"
+      no_average: "—"
+      no_rating: "—"
+      confirm_destroy: "Delete this image?"
+      empty: "No images yet."
+    flash:
+      created: "Image was successfully created"
+      updated: "Image was successfully updated"
+      destroyed: "Image was successfully destroyed"
+  themes:
+    index:
+      title: "Themes"
+      add_theme: "Add theme"
+      name: "Name"
+      images_count: "Images count"
+      actions: "Actions"
+      edit: "Edit"
+      destroy: "Delete"
+      confirm_destroy: "Delete this theme? Related images will lose their theme."
+      empty: "No themes yet."
+    flash:
+      created: "Theme was successfully created"
+      updated: "Theme was successfully updated"
+      destroyed: "Theme was successfully destroyed"
+  values:
+    index:
+      title: "My ratings"
+      add_rating: "Add rating"
+      unrated_images_title: "Images without your rating"
+      add_for_image: "Add"
+      image: "Image"
+      your_rating: "Your rating"
+      total_ratings: "Total ratings"
+      average: "Average rating"
+      actions: "Actions"
+      edit: "Edit"
+      destroy: "Delete"
+      no_average: "—"
+      confirm_destroy: "Delete this rating?"
+      empty: "You have no ratings yet."
+    new:
+      title: "New rating"
+      back: "Back to list"
+      no_unrated: "You have rated all available images."
+    edit:
+      title: "Edit rating: %{image}"
+      back: "Back"
+    form:
+      image: "Image"
+      rating: "Rating (1–5)"
+      select_image: "Select an image"
+      select_rating: "Select a rating"
+      save: "Save"
+      errors_title:
+        one: "1 error:"
+        other: "%{count} errors:"
+    flash:
+      created: "Rating was saved"
+      updated: "Rating was updated"
+      destroyed: "Rating was deleted"
+      access_denied: "Access denied"
   users:
     form:
       name: "Name"

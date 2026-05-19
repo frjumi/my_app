@@ -1,7 +1,17 @@
-%h1 Editing value
-
-= render 'form'
-
-= link_to 'Show', @value
-\|
-= link_to 'Back', values_path
+.values-edit
+  %h1= t('.title', image: @value.image.name)
+  = form_for @value do |f|
+    - if @value.errors.any?
+      .alert.alert-danger
+        %ul
+          - @value.errors.full_messages.each do |message|
+            %li= message
+    .field.form-group
+      %label= t('values.form.image')
+      %p.form-control-static= @value.image.name
+    .field.form-group
+      = f.label :value, t('values.form.rating')
+      = f.select :value, (1..5).to_a, {}, class: 'form-control', required: true
+    .actions
+      = f.submit t('values.form.save'), class: 'btn btn-primary'
+      = link_to t('.back'), values_path, class: 'btn btn-default'
