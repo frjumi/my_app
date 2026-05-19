@@ -1,39 +1,44 @@
-var imageData = '<%= raw @image_data %>';
-console.log("IN display_theme: @image_data = " + imageData);
 var valuesQty = '<%= @image_data[:values_qty] %>';
-console.log("IN display_theme: valuesQty = " + valuesQty);
-$('.left_controls span.total_values h2.total').append().html(valuesQty);
+$('.total_values_count').text(valuesQty);
 
-var selectedTheme = '<%= @image_data[:theme] %>';
-if( selectedTheme == "Select theme to leave your answer" || selectedTheme == "") {
-    $('.img-left-side').css({"display": "none"});
-    $('.img-right-side').css({"display": "none"});
-    $('.image .image_display .image_diag').css({"display": "none"});
+var selectedTheme = '<%= j @image_data[:theme] %>';
+var emptyTheme = '<%= j t("work.index.select_theme") %>';
+
+if (selectedTheme === emptyTheme || selectedTheme === '') {
+  $('.img-left-side').hide();
+  $('.img-right-side').hide();
+  $('.image_rating').hide();
 } else {
-    $('.img-left-side').css({"display": "block"});
-    $('.img-right-side').css({"display": "block"});
-    $('.image .image_display .image_diag').css({"display": "block"});
+  $('.img-left-side').show();
+  $('.img-right-side').show();
+  $('.image_rating').show();
 }
-$('.image_display h2.up-theme').append().html(selectedTheme);
+
+$('.image_display h2.up-theme').text(selectedTheme);
 $('.select_theme').empty().html("<%= j render 'work/button_theme_select' %>");
 
-var oneImageName = '<%= @image_data[:name] %>';
-var oneImageFile = '<%= @image_data[:file] %>';
-console.log("oneImageFile = " + oneImageFile);
-var oneImageId = '<%= @image_data[:image_id] %>';
-var themeImagesSize = '<%= @image_data[:images_arr_size] %>';
-var selectedThemeId = '<%= @image_data[:theme_id] %>';
-
-$('.image_display h2.up').append().html(oneImageName);
+var oneImageName = '<%= j @image_data[:name] %>';
 var pathImage = "<%= asset_path('pictures/' + @image_data[:file]) %>";
-$(".img-center img").attr({ alt: "Selected Image", src: pathImage, title: "Selected image" });
+var placeholderUrl = "<%= asset_path('pictures/' + WorkImage::PLACEHOLDER_FILE) %>";
 
-// Глобальные переменные для работы кнопок
-// Сохраняем параметры текущего изображения и темы для кнопок перелистывания
-window.imageCurrentIndex = <%= @image_data[:index] %>;
-window.selectedThemeId   = <%= @image_data[:theme_id] %>;
-window.themeImagesSize   = <%= @image_data[:images_arr_size] %>;
+$('.image_display h2.up').text(oneImageName);
 
-console.log("DEBUG: index=" + window.imageCurrentIndex +
-  " theme_id=" + window.selectedThemeId +
-  " length=" + window.themeImagesSize);
+var $img = $('.img-center img');
+$img.off('error.workImage').on('error.workImage', function() {
+  $(this).attr('src', placeholderUrl);
+});
+$img.attr({ alt: oneImageName, src: pathImage, title: oneImageName });
+
+window.imageCurrentIndex = <%= @image_data[:index] || 0 %>;
+window.selectedThemeId   = <%= @image_data[:theme_id] || 0 %>;
+window.themeImagesSize   = <%= @image_data[:images_arr_size] || 0 %>;
+window.currentImageId    = <%= @image_data[:image_id].present? ? @image_data[:image_id] : 'null' %>;
+
+$('.common_ave_value').text('<%= @image_data[:common_ave_value].to_f > 0 ? sprintf("%.2f", @image_data[:common_ave_value].to_f) : "—" %>');
+
+$('.rating-star').prop('checked', false);
+<% if @image_data[:user_valued].to_i == 1 && @image_data[:value].to_i > 0 %>
+$('.rating-star[value="<%= @image_data[:value] %>"]').prop('checked', true);
+<% end %>
+
+$('.rating_message').hide();

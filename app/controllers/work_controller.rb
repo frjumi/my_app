@@ -6,7 +6,7 @@ class WorkController < ApplicationController
 
   def index
     @images_count = Image.all.count
-    @selected_theme = "Select theme to leave your answer"
+    @selected_theme = t('work.index.select_theme')
     @selected_image_name = 'радуга'
     @values_qty = Value.all.count
     @current_locale = I18n.locale
@@ -19,18 +19,16 @@ class WorkController < ApplicationController
   end
 
   def display_theme
-    current_user_id = current_user.id  # позже реализуем аутентификацию, пока заменим на 1 (первый пользователь)
-    # временная заглушка:
-    current_user_id = 1 if !defined?(current_user)
-
     if params[:theme].blank? || params[:theme] == "---"
-      theme = "Select theme to leave your answer"
+      theme = t('work.index.select_theme')
       theme_id = 1
-      values_qty = Value.all.count.round
-      data = { index: 0, name: 'радуга', values_qty: values_qty,
-               file: 'Винкс.jpeg', image_id: 4,
-               current_user_id: current_user_id, user_valued: false,
-               common_ave_value: 0, value: 0 }
+      values_qty = Value.count
+      data = {
+        index: 0, name: 'радуга', values_qty: values_qty,
+        file: WorkImage::PLACEHOLDER_FILE, image_id: nil,
+        current_user_id: current_user.id, user_valued: 0,
+        common_ave_value: 0, value: 0, theme_id: theme_id, images_arr_size: 0
+      }
     else
       theme = params[:theme]
       theme_id = Theme.find_by(name: theme).id

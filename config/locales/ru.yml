@@ -12,6 +12,7 @@ ru:
       sign_in: "Войти"
       sign_out: "Выйти"
       sign_up: "Регистрация"
+      my_page: "Моя страница"
   main:
     index:
       welcome: "Добро пожаловать в приложение"
@@ -30,10 +31,35 @@ ru:
     edit:
       title: "Редактирование пользователя"
       update: "Обновить пользователя"
+    profile:
+      email: "Электронная почта"
+      total_ratings: "Всего ваших оценок:"
+      aligned_ratings_title: "Оценки, близкие к мнению сообщества"
+      image_name: "Изображение"
+      thumbnail: "Миниатюра"
+      your_rating: "Ваша оценка"
+      average_rating: "Средняя оценка"
+      no_aligned_ratings: "Ваши оценки существенно расходятся с мнением экспертного сообщества"
   work:
     index:
       select_theme: "Выберите тему, чтобы оставить ответ"
       total_estimates: "Всего оценок:"
+      average_rating: "Средняя оценка:"
+      your_rating: "Ваша оценка (1–5):"
+      default_image: "Изображение по умолчанию"
+      prev_image: "Предыдущее изображение"
+      next_image: "Следующее изображение"
+      select_theme_first: "Сначала выберите тему"
+      navigation_error: "Не удалось загрузить изображение"
+      rating_error: "Не удалось сохранить оценку"
+  api:
+    rate_image:
+      success: "Спасибо, ваша оценка сохранена"
+      image_not_found: "Изображение не найдено"
+    navigation:
+      next_success: "Переход к следующему изображению"
+      prev_success: "Переход к предыдущему изображению"
+      image_not_found: "Изображение не найдено"
   sessions:
     new:
       sign_in: "Войти"

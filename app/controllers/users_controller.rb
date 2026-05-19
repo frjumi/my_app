@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :profile, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
   # GET /users
@@ -10,6 +10,13 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+  end
+
+  # GET /profile — «Моя страница» текущего пользователя
+  def profile
+    @user = current_user
+    @values_count = @user.values.count
+    @aligned_values = @user.aligned_values
   end
 
   # GET /users/new

@@ -12,6 +12,7 @@ en:
       sign_in: "Sign in"
       sign_out: "Sign out"
       sign_up: "Sign up"
+      my_page: "My page"
   main:
     index:
       welcome: "Welcome to the App"
@@ -30,10 +31,35 @@ en:
     edit:
       title: "Edit user"
       update: "Update user"
+    profile:
+      email: "Email"
+      total_ratings: "Total ratings given:"
+      aligned_ratings_title: "Ratings aligned with community opinion"
+      image_name: "Image"
+      thumbnail: "Thumbnail"
+      your_rating: "Your rating"
+      average_rating: "Average rating"
+      no_aligned_ratings: "Your ratings differ significantly from the expert community opinion"
   work:
     index:
       select_theme: "Select theme to leave your answer"
       total_estimates: "Total estimates:"
+      average_rating: "Average rating:"
+      your_rating: "Your rating (1–5):"
+      default_image: "Default image"
+      prev_image: "Previous image"
+      next_image: "Next image"
+      select_theme_first: "Please select a theme first"
+      navigation_error: "Failed to load image"
+      rating_error: "Failed to save rating"
+  api:
+    rate_image:
+      success: "Thank you, your rating has been saved"
+      image_not_found: "Image not found"
+    navigation:
+      next_success: "Moved to next image"
+      prev_success: "Moved to previous image"
+      image_not_found: "Image not found"
   sessions:
     new:
       sign_in: "Sign in"

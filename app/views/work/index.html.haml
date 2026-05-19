@@ -1,28 +1,43 @@
-%h1 Work#index
-%p Find me in app/views/work/index.html.haml
-
-.image
-  .row
-    .col-md-3
-      .left_controls
-        .select_theme
-          = render 'work/button_theme_select', locale: @current_locale
-        .total_values
-          = t('.total_estimates') + " #{@values_qty}"
-    .col-md-9
-      .image_display
-        .row.image
-          .col-md-12
-            %h2.up-theme{title: "theme_name"} = @selected_theme
-          .col-md-12
-            %h2.up{title: "Image file name"} = @selected_image_name
-        .row
-          .col-md-1.img-left-side
-            %h3{title: "list to previous image"}
-              %i.fa.fa-chevron-circle-left.strong
-          .col-md-10.img-center
-            %img{alt: "Default Image", src: asset_path('pictures/Винкс.jpeg'), title: "Default image", style: "width:100%; height:100%;"}
-          .col-md-1.img-right-side
-            %h3{title: "list to next image"}
-              %i.fa.fa-chevron-circle-right.strong
-        .image_user_value{title: "Expert value"}
+#work-area{data: { placeholder_url: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), select_theme_first: t('.select_theme_first'), navigation_error: t('.navigation_error'), rating_error: t('.rating_error') }}
+  .image
+    .row
+      .col-md-3
+        .left_controls
+          .select_theme
+            = render 'work/button_theme_select', locale: @current_locale
+          .total_values
+            = t('.total_estimates')
+            %span.total_values_count= @values_qty
+      .col-md-9
+        .image_display
+          .row.image
+            .col-md-12
+              %h2.up-theme{title: "theme_name"}= @selected_theme
+            .col-md-12
+              %h2.up{title: "Image file name"}= @selected_image_name
+          .row
+            .col-md-1.img-left-side
+              %h3{title: t('.prev_image')}
+                %i.fa.fa-chevron-circle-left.strong
+            .col-md-10.img-center
+              %img.work-image{alt: t('.default_image'), src: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), title: t('.default_image'), style: "width:100%; height:auto;"}
+            .col-md-1.img-right-side
+              %h3{title: t('.next_image')}
+                %i.fa.fa-chevron-circle-right.strong
+          .image_rating
+            .row
+              .col-md-12
+                %p.average_rating
+                  %strong= t('.average_rating')
+                  %span.common_ave_value —
+            .row
+              .col-md-12
+                %p= t('.your_rating')
+                .rating-stars
+                  - (1..5).each do |star|
+                    %label.star-label
+                      %input.rating-star{type: 'radio', name: 'rating', value: star}
+                      %i.fa.fa-star
+            .row
+              .col-md-12
+                .rating_message.alert{style: 'display:none;'}
