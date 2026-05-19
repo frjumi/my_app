@@ -14,6 +14,32 @@ en:
       sign_up: "Sign up"
       my_page: "My page"
   main:
+    about:
+      title: "About"
+      content: "This is an educational web project (coursework) for rating images by users. Registered participants choose a theme, browse images, and submit ratings from 1 to 5; the system stores ratings and calculates the average score for each image."
+      winx_theme: "The image theme of the project is the Winx universe: transformations, characters, and scenes from the animated series."
+      course_note: "The application was developed as part of a web programming coursework project."
+    help:
+      title: "Help"
+      intro: "Below is a brief description of the main sections of the application. Section names are links — click to go to the corresponding page."
+      sections_heading: "Application sections"
+      sections:
+        home_title: "Home"
+        home: "Welcome page: general project information, theme and image counts, links to sign up or proceed to the work area."
+        work_title: "Work"
+        work: "Work area: choose a theme, view images, navigate between them, rate with stars (1–5) and the Submit rating button."
+        images_title: "Images"
+        images: "List of all images: name, theme, rating count and average, your rating (when signed in). Add, edit, and delete images."
+        themes_title: "Themes"
+        themes: "List of themes and image count per theme. Manage themes: add, edit, and delete."
+        values_title: "Values"
+        values: "Your ratings: only the current user's records. Add ratings for unrated images, edit and delete your own ratings."
+        contacts_title: "Contacts"
+        contacts: "Course project author contact details."
+        help_title: "Help"
+        help: "This page — a short guide to the application sections."
+        about_title: "About"
+        about: "Project description, goals, and theme (Winx)."
     contacts:
       title: "Contacts"
       full_name_label: "Full name:"

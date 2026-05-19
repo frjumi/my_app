@@ -1,2 +1,7 @@
-%h1 Main#about
-%p Find me in app/views/main/about.html.haml
+.about-page
+  %h1= t('.title')
+  .panel.panel-default
+    .panel-body
+      %p.lead= t('.content')
+      %p= t('.winx_theme')
+      %p.text-muted= t('.course_note')

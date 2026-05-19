@@ -1,3 +1,31 @@
-%h1 Main#help
-%p Find me in app/views/main/help.html.haml
-%p= link_to 'Back to main', root_path
+.help-page
+  %h1= t('.title')
+  .panel.panel-default
+    .panel-body
+      %p.lead= t('.intro')
+
+      %h3= t('.sections_heading')
+      %dl.help-sections
+        %dt= link_to t('.sections.home_title'), root_path
+        %dd= t('.sections.home')
+
+        %dt= link_to t('.sections.work_title'), work_path
+        %dd= t('.sections.work')
+
+        %dt= link_to t('.sections.images_title'), images_path
+        %dd= t('.sections.images')
+
+        %dt= link_to t('.sections.themes_title'), themes_path
+        %dd= t('.sections.themes')
+
+        %dt= link_to t('.sections.values_title'), values_path
+        %dd= t('.sections.values')
+
+        %dt= link_to t('.sections.contacts_title'), main_contacts_path
+        %dd= t('.sections.contacts')
+
+        %dt= link_to t('.sections.help_title'), main_help_path
+        %dd= t('.sections.help')
+
+        %dt= link_to t('.sections.about_title'), main_about_path
+        %dd= t('.sections.about')
