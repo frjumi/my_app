@@ -8,7 +8,7 @@
         .select_theme
           = render 'work/button_theme_select', locale: @current_locale
         .total_values
-          %h2.total Всего оценок: #{@values_qty}
+          = t('.total_estimates') + " #{@values_qty}"
     .col-md-9
       .image_display
         .row.image

@@ -1,31 +1,42 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  shared:
+    header:
+      logo_title: "My App"
+      home: "Home"
+      help: "Help"
+      contacts: "Contacts"
+      about: "About"
+      images: "Images"
+      themes: "Themes"
+      values: "Values"
+      sign_in: "Sign in"
+      sign_out: "Sign out"
+      sign_up: "Sign up"
+  main:
+    index:
+      welcome: "Welcome to the App"
+      signup_now: "Sign up now!"
+      proceed: "Proceed to work!"
+  users:
+    form:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      create_account: "Create my account"
+    show:
+      email: "Email"
+      work: "Go to work"
+    edit:
+      title: "Edit user"
+      update: "Update user"
+  work:
+    index:
+      select_theme: "Select theme to leave your answer"
+      total_estimates: "Total estimates:"
+  sessions:
+    new:
+      sign_in: "Sign in"
+      email: "Email"
+      password: "Password"
+      new_user: "New user? Sign up now!"

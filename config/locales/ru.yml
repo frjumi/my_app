@@ -1,0 +1,42 @@
+ru:
+  shared:
+    header:
+      logo_title: "Моё приложение"
+      home: "Главная"
+      help: "Помощь"
+      contacts: "Контакты"
+      about: "О проекте"
+      images: "Изображения"
+      themes: "Темы"
+      values: "Оценки"
+      sign_in: "Войти"
+      sign_out: "Выйти"
+      sign_up: "Регистрация"
+  main:
+    index:
+      welcome: "Добро пожаловать в приложение"
+      signup_now: "Зарегистрируйтесь сейчас!"
+      proceed: "Перейти к работе!"
+  users:
+    form:
+      name: "Имя"
+      email: "Электронная почта"
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
+      create_account: "Создать аккаунт"
+    show:
+      email: "Электронная почта"
+      work: "Перейти к работе"
+    edit:
+      title: "Редактирование пользователя"
+      update: "Обновить пользователя"
+  work:
+    index:
+      select_theme: "Выберите тему, чтобы оставить ответ"
+      total_estimates: "Всего оценок:"
+  sessions:
+    new:
+      sign_in: "Войти"
+      email: "Электронная почта"
+      password: "Пароль"
+      new_user: "Новый пользователь? Зарегистрируйтесь!"

@@ -1,21 +1,27 @@
 %header.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
-      = link_to "My App", root_path, class: "navbar-brand"
+      = link_to t('.logo_title'), root_path, class: "navbar-brand"
     %ul.nav.navbar-nav
-      %li= link_to "Home", root_path
-      %li= link_to "Help", main_help_path
-      %li= link_to "Contacts", main_contacts_path
-      %li= link_to "About", main_about_path
-      %li= link_to 'Images', images_path
-      %li= link_to 'Themes', themes_path
-      %li= link_to 'Values', values_path
+      %li= link_to t('.home'), root_path
+      %li= link_to t('.help'), main_help_path
+      %li= link_to t('.contacts'), main_contacts_path
+      %li= link_to t('.about'), main_about_path
+      %li= link_to t('.images'), images_path
+      %li= link_to t('.themes'), themes_path
+      %li= link_to t('.values'), values_path
     %ul.nav.navbar-nav.pull-right
       - if signed_in?
         %li
           = link_to current_user.name, current_user
         %li
-          = link_to "Sign out", signout_path, method: :delete
+          = link_to t('.sign_out'), signout_path, method: :delete
       - else
-        %li= link_to "Sign in", signin_path
-        %li= link_to "Sign up", signup_path
+        %li= link_to t('.sign_in'), signin_path
+        %li= link_to t('.sign_up'), signup_path
+      %li.locale
+        .btn-group
+          = link_to url_for(locale: :ru), class: "btn btn-default btn-xs" do
+            = image_tag('Russia.jpg', size: '20x13', title: 'Русский')
+          = link_to url_for(locale: :en), class: "btn btn-default btn-xs" do
+            = image_tag('English.jpg', size: '20x13', title: 'English')

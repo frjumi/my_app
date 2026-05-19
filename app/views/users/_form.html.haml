@@ -6,16 +6,16 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :name
+    = f.label t('.name')
     = f.text_field :name
   .field
-    = f.label :email
+    = f.label t('.email')
     = f.email_field :email
   .field
-    = f.label :password
+    = f.label t('.password')
     = f.password_field :password
   .field
-    = f.label :password_confirmation
+    = f.label t('.password_confirmation')
     = f.password_field :password_confirmation
   .actions
-    = f.submit "Create my account", class: "btn btn-primary"
+    = f.submit t('.create_account'), class: "btn btn-primary"
