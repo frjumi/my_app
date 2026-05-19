@@ -25,7 +25,7 @@ var themeImagesSize = '<%= @image_data[:images_arr_size] %>';
 var selectedThemeId = '<%= @image_data[:theme_id] %>';
 
 $('.image_display h2.up').append().html(oneImageName);
-var pathImage = "/assets/pictures/" + oneImageFile;
+var pathImage = "<%= asset_path('pictures/' + @image_data[:file]) %>";
 $(".img-center img").attr({ alt: "Selected Image", src: pathImage, title: "Selected image" });
 
 // Глобальные переменные для работы кнопок
