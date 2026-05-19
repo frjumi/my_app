@@ -24,15 +24,15 @@ end
 themes = Theme.create([
                         { name: "---" },  # id:1
                         { name: "Какое из превращений Блум Вам нравится больше?" },
-                        { name: "Какое из произведений художника П.Пикассо наилучшим образом характеризует его творчество?" },
-                        { name: "Какое из произведений художника А.Матисса наилучшим образом характеризует его творчество?" }
+                        { name: "Какое из превращений Стеллы Вам нравится больше?" },
+                        { name: "Какое из превращений Музы Вам нравится больше?" }
                       ])
 
 images = Image.create([
                         { name: "Блум. Базовое превращение", file: "Блум_База.jpeg", theme_id: 2, ave_value: 0 },
                         { name: "Блум. Чармикс", file: "Блум_Чармикс.jpeg", theme_id: 2, ave_value: 0 },
                         { name: "Блум. Энчантикс", file: "Блум_Энчантикс.jpeg", theme_id: 2, ave_value: 0 },
-                        { name: "Блум. Беливикс", file: "Блум_Беливикс.jpeg", theme_id: 4, ave_value: 0 }
+                        { name: "Блум. Беливикс", file: "Блум_Беливикс.jpeg", theme_id: 2, ave_value: 0 }
                       # Добавьте ещё 6-11 изображений по аналогии
                       ])
 
@@ -40,10 +40,10 @@ images = Image.create([
 # Если в модели User нет password_digest, пока создаём без пароля или добавьте поле.
 # Для лабораторной мы можем оставить без пароля, но методичка показывает password.
 # Если нужно с паролем – добавьте в Gemfile bcrypt и миграцию add_password_digest_to_users, но это позже.
-
-# Создание пользователя (если ещё нет)
-user = User.find_or_create_by(email: "expert@example.com") do |u|
-  u.name = "Эксперт Фролова"
-end
-
-puts "Seeded #{Theme.count} themes, #{Image.count} images, #{User.count} users, #{Value.count} values"
+#
+# # Создание пользователя (если ещё нет)
+# user = User.find_or_create_by(email: "expert@example.com") do |u|
+#   u.name = "Эксперт Фролова"
+# end
+#
+# puts "Seeded #{Theme.count} themes, #{Image.count} images, #{User.count} users, #{Value.count} values"
