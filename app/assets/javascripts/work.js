@@ -1,10 +1,18 @@
-// Логика рабочей области: перелистывание и оценивание
+// Логика рабочей области: Kaminari-пагинация (по 1 изображению) и оценивание
 (function() {
   var pendingRating = 0;
   var savedRating = 0;
 
   function getWorkArea() {
     return $('#work-area');
+  }
+
+  function appLocale() {
+    return $('html').attr('lang') || 'ru';
+  }
+
+  function apiUrl(path) {
+    return '/' + appLocale() + path;
   }
 
   function formatAverage(value) {
@@ -14,7 +22,6 @@
     return parseFloat(value).toFixed(2);
   }
 
-  // Неактивные — серые (fa-star-o), выбранные — жёлто-оранжевые (fa-star)
   function highlightStars(count) {
     $('.star-btn').each(function() {
       var starValue = $(this).data('value');
@@ -70,6 +77,22 @@
     $('.rating_message').hide();
   }
 
+  function updatePaginationUI(data) {
+    var firstPage = data.first_page === true || data.first_page === 'true';
+    var lastPage = data.last_page === true || data.last_page === 'true';
+    var currentPage = data.current_page || window.currentPage || 1;
+    var totalPages = data.total_pages || window.totalPages || 0;
+
+    window.currentPage = currentPage;
+    window.totalPages = totalPages;
+
+    $('.img-left-side').toggleClass('nav-disabled', firstPage);
+    $('.img-right-side').toggleClass('nav-disabled', lastPage);
+    $('.page-current').text(currentPage);
+    $('.page-total').text(totalPages);
+    $('.image-kaminari-nav').toggle(totalPages > 0);
+  }
+
   function showRatingMessage(message, isError) {
     var $msg = $('.rating_message');
     $msg.removeClass('alert-success alert-danger')
@@ -97,7 +120,7 @@
 
     $.ajax({
       type: 'POST',
-      url: '/api/rate_image',
+      url: apiUrl('/api/rate_image'),
       data: { image_id: window.currentImageId, value: pendingRating },
       dataType: 'json',
       success: function(data) {
@@ -130,7 +153,6 @@
       return;
     }
 
-    window.imageCurrentIndex = data.new_image_index;
     window.currentImageId = data.image_id;
 
     $('.image-title').text(data.name).show();
@@ -140,28 +162,33 @@
     setImageSrc($('.img-center img'), data.image_url, data.placeholder_url);
     $('.img-center img').attr('alt', data.name).attr('title', data.name);
     applyRatingState(data);
+    updatePaginationUI(data);
   }
 
-  function navigateImage(url) {
+  function navigateImage(path) {
     var $workArea = getWorkArea();
 
     if ($workArea.hasClass('work-idle')) {
       return;
     }
 
-    var index = parseInt(window.imageCurrentIndex, 10);
-    var themeId = parseInt(window.selectedThemeId, 10);
-    var length = parseInt(window.themeImagesSize, 10);
+    var $side = path.indexOf('next') >= 0 ? $('.img-right-side') : $('.img-left-side');
+    if ($side.hasClass('nav-disabled')) {
+      return;
+    }
 
-    if (isNaN(index) || isNaN(themeId) || themeId <= 0 || isNaN(length) || length <= 0) {
+    var page = parseInt(window.currentPage, 10);
+    var themeId = parseInt(window.selectedThemeId, 10);
+
+    if (isNaN(page) || page < 1 || isNaN(themeId) || themeId <= 0) {
       showRatingError($workArea.data('select-theme-first'));
       return;
     }
 
     $.ajax({
       type: 'GET',
-      url: url,
-      data: { index: index, theme_id: themeId, length: length },
+      url: apiUrl(path),
+      data: { page: page, theme_id: themeId },
       dataType: 'json',
       success: updateImageDisplay,
       error: function(xhr) {
@@ -227,11 +254,17 @@
   }
 
   window.WorkNav = {
-    setContext: function(index, themeId, imagesSize, imageId) {
-      window.imageCurrentIndex = index;
-      window.selectedThemeId = themeId;
-      window.themeImagesSize = imagesSize;
-      window.currentImageId = imageId;
+    setContext: function(opts) {
+      window.currentPage = opts.currentPage || 1;
+      window.selectedThemeId = opts.themeId;
+      window.totalPages = opts.totalPages || 0;
+      window.currentImageId = opts.imageId;
+      updatePaginationUI({
+        current_page: opts.currentPage,
+        total_pages: opts.totalPages,
+        first_page: opts.firstPage,
+        last_page: opts.lastPage
+      });
     }
   };
 

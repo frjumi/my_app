@@ -183,6 +183,8 @@ ru:
       change_rating: "Изменить оценку"
       select_rating_hint: "Выберите оценку"
       no_images_in_theme: "В этой теме пока нет изображений"
+      pagination_label: "Страница"
+      pagination_of: "из"
   api:
     rate_image:
       created: "Ваша оценка сохранена"
@@ -192,6 +194,8 @@ ru:
       next_success: "Переход к следующему изображению"
       prev_success: "Переход к предыдущему изображению"
       image_not_found: "Изображение не найдено"
+      first_page: "Это первое изображение в теме"
+      last_page: "Это последнее изображение в теме"
   sessions:
     flash:
       invalid_credentials: "Неверная комбинация email и пароля"

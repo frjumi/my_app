@@ -10,6 +10,7 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
   $('#work-area').addClass('work-idle');
   $('.img-left-side, .img-right-side').hide();
   $('.image_rating').hide();
+  $('.image-kaminari-nav').hide();
   $('.welcome-title').show();
   $('.image-title').hide().text('');
   $('.image_display h2.up-theme').text(selectedTheme);
@@ -22,19 +23,21 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
   });
 
   if (window.WorkNav) {
-    window.WorkNav.setContext(0, null, 0, null);
+    window.WorkNav.setContext({ currentPage: 1, themeId: null, totalPages: 0, firstPage: true, lastPage: true, imageId: null });
   }
 } else {
   $('#work-area').removeClass('work-idle');
-  var imagesSize = <%= @image_data[:images_arr_size] || 0 %>;
-  var hasImages = imagesSize > 0 && <%= @image_data[:image_id].present? ? 'true' : 'false' %>;
+  var totalPages = <%= @image_data[:total_pages] || 0 %>;
+  var hasImages = totalPages > 0 && <%= @image_data[:image_id].present? ? 'true' : 'false' %>;
 
   if (hasImages) {
     $('.img-left-side, .img-right-side').show();
     $('.image_rating').show();
+    $('.image-kaminari-nav').show();
   } else {
     $('.img-left-side, .img-right-side').hide();
     $('.image_rating').hide();
+    $('.image-kaminari-nav').hide();
   }
   $('.welcome-title').hide();
   $('.image-title').show().text('<%= j @image_data[:name] %>');
@@ -54,11 +57,18 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
   });
 
   var themeId = <%= @image_data[:theme_id] || 'null' %>;
-  var imageIndex = <%= @image_data[:index] || 0 %>;
+  var currentPage = <%= @image_data[:page] || 1 %>;
   var imageId = <%= @image_data[:image_id].present? ? @image_data[:image_id] : 'null' %>;
 
   if (window.WorkNav) {
-    window.WorkNav.setContext(imageIndex, themeId, imagesSize, imageId);
+    window.WorkNav.setContext({
+      currentPage: currentPage,
+      themeId: themeId,
+      totalPages: totalPages,
+      firstPage: <%= @image_data[:first_page] ? 'true' : 'false' %>,
+      lastPage: <%= @image_data[:last_page] ? 'true' : 'false' %>,
+      imageId: imageId
+    });
   }
 
   if (window.WorkRating) {

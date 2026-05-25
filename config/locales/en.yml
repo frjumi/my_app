@@ -181,6 +181,8 @@ en:
       change_rating: "Change rating"
       select_rating_hint: "Select a rating"
       no_images_in_theme: "No images in this theme yet"
+      pagination_label: "Page"
+      pagination_of: "of"
   api:
     rate_image:
       created: "Your rating has been saved"
@@ -190,6 +192,8 @@ en:
       next_success: "Moved to next image"
       prev_success: "Moved to previous image"
       image_not_found: "Image not found"
+      first_page: "This is the first image in the theme"
+      last_page: "This is the last image in the theme"
   sessions:
     flash:
       invalid_credentials: "Invalid email/password combination"

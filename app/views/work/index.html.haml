@@ -21,14 +21,20 @@
             %h2.welcome-title= t('.welcome_title')
             %h2.image-title{style: 'display: none;'}
         .row.image-viewer
-          .col-md-1.img-left-side
+          .col-md-1.img-left-side.nav-disabled
             %button.nav-arrow.btn-nav{type: 'button', title: t('.prev_image')}
               %i.fa.fa-chevron-circle-left
           .col-md-10.img-center
             %img.work-image{alt: t('.welcome_title'), src: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), title: t('.welcome_title')}
-          .col-md-1.img-right-side
+          .col-md-1.img-right-side.nav-disabled
             %button.nav-arrow.btn-nav{type: 'button', title: t('.next_image')}
               %i.fa.fa-chevron-circle-right
+        .row
+          .col-md-12.image-kaminari-nav.text-center{style: 'display: none;'}
+            %span.kaminari-pagination-label= t('.pagination_label')
+            %strong.page-current 1
+            = t('.pagination_of')
+            %strong.page-total 0
         .image_rating
           .row
             .col-md-12.rating-stats

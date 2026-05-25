@@ -5,7 +5,6 @@ module WorkHelper
     @image_data[:theme] = theme
     @image_data[:current_user_id] = data[:current_user_id]
     @image_data[:theme_id] = data[:theme_id]
-    @image_data[:index] = data[:index]
     @image_data[:images_arr_size] = data[:images_arr_size]
     @image_data[:image_id] = data[:image_id]
     @image_data[:name] = data[:name]
@@ -16,6 +15,10 @@ module WorkHelper
     @image_data[:image_values_count] = data[:image_values_count]
     @image_data[:theme_values_count] = data[:theme_values_count]
     @image_data[:idle] = data[:idle]
+    @image_data[:page] = data[:page]
+    @image_data[:total_pages] = data[:total_pages]
+    @image_data[:first_page] = data[:first_page]
+    @image_data[:last_page] = data[:last_page]
     @image_data
   end
 end

@@ -32,7 +32,8 @@ class WorkController < ApplicationController
         session[:selected_theme_id] = nil
       else
         theme_id = theme_record.id
-        data = show_image(theme_id, 0)
+        @paginated_images = paginated_theme_images(theme_id, 1)
+        data = show_image(theme_id, 1)
         data = fallback_theme_data(theme_record) if data.nil?
         data[:idle] = false
         session[:selected_theme_id] = theme_id
@@ -47,7 +48,6 @@ class WorkController < ApplicationController
 
   def idle_theme_data
     {
-      index: 0,
       values_qty: Value.count,
       file: WorkImage::PLACEHOLDER_FILE,
       image_id: nil,
@@ -60,6 +60,10 @@ class WorkController < ApplicationController
       images_arr_size: 0,
       image_values_count: 0,
       theme_values_count: 0,
+      page: 1,
+      total_pages: 0,
+      first_page: true,
+      last_page: true,
       idle: true
     }
   end
@@ -68,7 +72,6 @@ class WorkController < ApplicationController
   def fallback_theme_data(theme_record)
     theme_id = theme_record.id
     {
-      index: 0,
       values_qty: Value.count,
       file: WorkImage::PLACEHOLDER_FILE,
       image_id: nil,
@@ -81,6 +84,10 @@ class WorkController < ApplicationController
       images_arr_size: 0,
       image_values_count: 0,
       theme_values_count: theme_values_count(theme_id),
+      page: 1,
+      total_pages: 0,
+      first_page: true,
+      last_page: true,
       idle: false,
       no_images: true
     }

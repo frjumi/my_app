@@ -2,6 +2,7 @@ module WorkImage
   extend ActiveSupport::Concern
 
   PLACEHOLDER_FILE = 'Винкс.jpeg'.freeze
+  IMAGES_PER_PAGE = 1
 
   # Количество оценок по всем изображениям выбранной темы.
   def theme_values_count(theme_id)
@@ -10,13 +11,21 @@ module WorkImage
     Value.joins(:image).where(images: { theme_id: theme_id }).count
   end
 
-  # Возвращает хэш с данными изображения темы или nil, если изображение не найдено.
-  def show_image(theme_id, image_index)
-    theme_images = Image.theme_images(theme_id).to_a
-    return nil if theme_images.empty?
+  # Kaminari: по одному изображению темы на страницу
+  def paginated_theme_images(theme_id, page = 1)
+    Image.where(theme_id: theme_id).order(:id).page(page).per(IMAGES_PER_PAGE)
+  end
 
-    safe_index = image_index % theme_images.size
-    one_image = theme_images[safe_index]
+  # Данные текущей страницы (изображения) для UI и API
+  def show_image(theme_id, page = 1)
+    collection = paginated_theme_images(theme_id, page)
+    return nil if collection.blank?
+
+    build_image_data(collection, theme_id)
+  end
+
+  def build_image_data(collection, theme_id)
+    one_image = collection.first
     return nil if one_image.blank?
 
     image_id = one_image.id
@@ -29,19 +38,25 @@ module WorkImage
     image_values_count = Value.where(image_id: image_id).count
 
     {
-      index: safe_index,
+      page: collection.current_page,
+      total_pages: collection.total_pages,
+      first_page: collection.first_page?,
+      last_page: collection.last_page?,
+      prev_page: collection.prev_page,
+      next_page: collection.next_page,
       values_qty: Value.count,
       image_values_count: image_values_count,
       theme_values_count: theme_values_count(theme_id),
       current_user_id: user_id,
       theme_id: theme_id,
-      images_arr_size: theme_images.size,
+      images_arr_size: collection.total_count,
       image_id: image_id,
       name: one_image.name,
       file: one_image.file,
       user_valued: user_valued,
       value: value,
-      common_ave_value: common_ave_value
+      common_ave_value: common_ave_value,
+      paginated_collection: collection
     }
   end
 end

@@ -4,14 +4,14 @@ module Api
 
     before_action :signed_in_user
 
-    # GET /api/next_image?index=0&theme_id=2&length=4
+    # GET /api/next_image?theme_id=2&page=1 — следующая страница Kaminari
     def next_image
-      render_navigated_image(:next)
+      render_paginated_image(:next)
     end
 
-    # GET /api/prev_image?index=0&theme_id=2&length=4
+    # GET /api/prev_image?theme_id=2&page=2 — предыдущая страница Kaminari
     def prev_image
-      render_navigated_image(:prev)
+      render_paginated_image(:prev)
     end
 
     # POST /api/rate_image — создание или обновление оценки текущего пользователя
@@ -50,24 +50,29 @@ module Api
 
     private
 
-    def render_navigated_image(direction)
-      current_index = params[:index].to_i
+    def render_paginated_image(direction)
       theme_id = params[:theme_id].to_i
-      length = params[:length].to_i
+      current_page = [params[:page].to_i, 1].max
 
-      new_index = direction == :next ? next_index(current_index, length) : prev_index(current_index, length)
-      image_data = show_image(theme_id, new_index)
-
-      if image_data.nil?
+      collection = paginated_theme_images(theme_id, current_page)
+      if collection.blank?
         render json: { status: 'error', error: I18n.t('api.navigation.image_not_found') }, status: :not_found
         return
       end
 
+      target_page = direction == :next ? collection.next_page : collection.prev_page
+
+      unless target_page
+        error_key = direction == :next ? 'api.navigation.last_page' : 'api.navigation.first_page'
+        render json: { status: 'error', error: I18n.t(error_key) }, status: :unprocessable_entity
+        return
+      end
+
+      new_collection = paginated_theme_images(theme_id, target_page)
+      image_data = build_image_data(new_collection, theme_id)
+
       notice_key = direction == :next ? 'api.navigation.next_success' : 'api.navigation.prev_success'
-      render json: image_json_payload(image_data).merge(
-        new_image_index: image_data[:index],
-        notice: I18n.t(notice_key)
-      )
+      render json: image_json_payload(image_data).merge(notice: I18n.t(notice_key))
     end
 
     def image_json_payload(image_data)
@@ -85,24 +90,18 @@ module Api
         new_total_values: image_data[:image_values_count],
         image_values_count: image_data[:image_values_count],
         theme_values_count: image_data[:theme_values_count],
+        current_page: image_data[:page],
+        total_pages: image_data[:total_pages],
+        first_page: image_data[:first_page],
+        last_page: image_data[:last_page],
+        prev_page: image_data[:prev_page],
+        next_page: image_data[:next_page],
         status: 'success'
       }
     end
 
     def picture_asset_url(filename)
       view_context.asset_path("pictures/#{filename}")
-    end
-
-    def next_index(index, length)
-      return 0 if length <= 1
-
-      (index + 1) % length
-    end
-
-    def prev_index(index, length)
-      return 0 if length <= 1
-
-      (index - 1 + length) % length
     end
   end
 end
