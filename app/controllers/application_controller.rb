@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    I18n.locale = extract_locale_from_params || I18n.default_locale
-    Rails.application.routes.default_url_options[:locale] = I18n.locale
+    I18n.locale = extract_locale || I18n.default_locale
   end
 
-  def extract_locale_from_params
-    if params[:locale] && I18n.available_locales.include?(params[:locale].to_sym)
-      params[:locale]
-    end
+  def extract_locale
+    locale = params[:locale]&.to_sym
+    return locale if locale.present? && I18n.available_locales.include?(locale)
+
+    nil
   end
 
   def default_url_options
