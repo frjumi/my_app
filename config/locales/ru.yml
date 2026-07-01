@@ -93,6 +93,9 @@ ru:
       missing_api_key: "Сервис фактов недоступен: не задан OPENAI_API_KEY"
       empty_response: "Модель вернула пустой ответ"
       generation_failed: "Не удалось сгенерировать текст. Попробуйте позже."
+      insufficient_quota: "Исчерпана квота OpenAI. Пополните баланс или привяжите карту: platform.openai.com/settings/organization/billing"
+      rate_limited: "Слишком много запросов к OpenAI. Подождите и попробуйте снова."
+      invalid_api_key: "Неверный OPENAI_API_KEY. Проверьте ключ в .env"
   themes:
     index:
       title: "Темы"

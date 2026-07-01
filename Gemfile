@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "3.3.0"
+ruby "3.3.6"
 
 # Основные гемы (доступны везде)
 gem "rails", "~> 7.1.2"
@@ -30,6 +30,7 @@ gem 'omniai'
 gem 'omniai-openai'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem "debug", platforms: %i[mri windows]
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'

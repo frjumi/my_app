@@ -93,6 +93,9 @@ en:
       missing_api_key: "Facts service unavailable: OPENAI_API_KEY is not set"
       empty_response: "The model returned an empty response"
       generation_failed: "Could not generate text. Please try again later."
+      insufficient_quota: "OpenAI quota exceeded. Add billing or credits at platform.openai.com/settings/organization/billing"
+      rate_limited: "Too many requests to OpenAI. Please wait and try again."
+      invalid_api_key: "Invalid OPENAI_API_KEY. Check the key in .env"
   themes:
     index:
       title: "Themes"
