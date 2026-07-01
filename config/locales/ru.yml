@@ -201,6 +201,10 @@ ru:
       no_images_in_theme: "В этой теме пока нет изображений"
       pagination_label: "Страница"
       pagination_of: "из"
+      facts_title: "Интересные факты"
+      facts_button: "Интересные факты"
+      facts_loading: "Генерация…"
+      facts_error: "Не удалось загрузить интересные факты"
   api:
     rate_image:
       created: "Ваша оценка сохранена"

@@ -11,6 +11,7 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
   $('.img-left-side, .img-right-side').hide();
   $('.image_rating').hide();
   $('.image-kaminari-nav').hide();
+  $('.work-ai-facts').hide();
   $('.welcome-title').show();
   $('.image-title').hide().text('');
   $('.image_display h2.up-theme').text(selectedTheme);
@@ -25,6 +26,9 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
   if (window.WorkNav) {
     window.WorkNav.setContext({ currentPage: 1, themeId: null, totalPages: 0, firstPage: true, lastPage: true, imageId: null });
   }
+  if (window.WorkAiFacts) {
+    window.WorkAiFacts.updateState(null);
+  }
 } else {
   $('#work-area').removeClass('work-idle');
   var totalPages = <%= @image_data[:total_pages] || 0 %>;
@@ -34,10 +38,12 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
     $('.img-left-side, .img-right-side').show();
     $('.image_rating').show();
     $('.image-kaminari-nav').show();
+    $('.work-ai-facts').show();
   } else {
     $('.img-left-side, .img-right-side').hide();
     $('.image_rating').hide();
     $('.image-kaminari-nav').hide();
+    $('.work-ai-facts').hide();
   }
   $('.welcome-title').hide();
   $('.image-title').show().text('<%= j @image_data[:name] %>');
@@ -83,6 +89,10 @@ if (isIdle || selectedTheme === emptyTheme || selectedTheme === '') {
       user_value: <%= @image_data[:value].to_i %>,
       value: <%= @image_data[:value].to_i %>
     });
+  }
+
+  if (window.WorkAiFacts) {
+    window.WorkAiFacts.updateState(<%= @image_data[:ai_fact].present? ? raw(@image_data[:ai_fact].to_json) : 'null' %>);
   }
 }
 

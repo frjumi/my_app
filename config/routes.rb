@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get 'next_image', to: 'api#next_image'
       get 'prev_image', to: 'api#prev_image'
       post 'rate_image', to: 'api#rate_image'
+      post 'ai_fact', to: 'api#ai_fact'
     end
 
     get 'profile', to: 'users#profile'

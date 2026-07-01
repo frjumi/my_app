@@ -19,6 +19,7 @@ module WorkHelper
     @image_data[:total_pages] = data[:total_pages]
     @image_data[:first_page] = data[:first_page]
     @image_data[:last_page] = data[:last_page]
+    @image_data[:ai_fact] = data[:ai_fact]
     @image_data
   end
 end

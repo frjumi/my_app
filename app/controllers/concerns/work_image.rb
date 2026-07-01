@@ -56,6 +56,7 @@ module WorkImage
       user_valued: user_valued,
       value: value,
       common_ave_value: common_ave_value,
+      ai_fact: one_image.ai_fact,
       paginated_collection: collection
     }
   end

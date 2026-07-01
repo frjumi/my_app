@@ -199,6 +199,10 @@ en:
       no_images_in_theme: "No images in this theme yet"
       pagination_label: "Page"
       pagination_of: "of"
+      facts_title: "Interesting facts"
+      facts_button: "Interesting facts"
+      facts_loading: "Generating…"
+      facts_error: "Could not load interesting facts"
   api:
     rate_image:
       created: "Your rating has been saved"

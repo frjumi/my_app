@@ -1,4 +1,4 @@
-#work-area.work-page.work-idle{data: { placeholder_url: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), select_theme_first: t('.select_theme_first'), navigation_error: t('.navigation_error'), rating_error: t('.rating_error'), submit_rating: t('.submit_rating'), select_rating_hint: t('.select_rating_hint') }}
+#work-area.work-page.work-idle{data: { placeholder_url: asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}"), select_theme_first: t('.select_theme_first'), navigation_error: t('.navigation_error'), rating_error: t('.rating_error'), facts_error: t('.facts_error'), submit_rating: t('.submit_rating'), select_rating_hint: t('.select_rating_hint'), facts_button: t('.facts_button'), facts_loading: t('.facts_loading') }}
   .row.work-layout
     .col-md-3.col-sm-12.work-sidebar
       .left_controls.panel-card
@@ -35,6 +35,12 @@
             %strong.page-current 1
             = t('.pagination_of')
             %strong.page-total 0
+        .work-ai-facts{style: 'display: none;'}
+          .row
+            .col-md-12
+              %h3.ai-facts-title= t('.facts_title')
+              %p.ai-fact-text{style: 'display: none;'}
+              %button#load-ai-facts.btn.btn-info{type: 'button', style: 'display: none;'}= t('.facts_button')
         .image_rating
           .row
             .col-md-12.rating-stats

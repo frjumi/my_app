@@ -14,6 +14,24 @@ module Api
       render_paginated_image(:prev)
     end
 
+    # POST /api/ai_fact — интересные факты (генерация один раз, далее из БД)
+    def ai_fact
+      image = Image.find(params[:image_id])
+      was_cached = image.ai_fact.present?
+      text = AiFactsService.call(image)
+
+      render json: {
+        status: 'success',
+        ai_fact: text,
+        cached: was_cached,
+        image_id: image.id
+      }
+    rescue AiFactsService::Error => e
+      render json: { status: 'error', error: e.message }, status: :unprocessable_entity
+    rescue ActiveRecord::RecordNotFound
+      render json: { status: 'error', error: I18n.t('api.rate_image.image_not_found') }, status: :not_found
+    end
+
     # POST /api/rate_image — создание или обновление оценки текущего пользователя
     def rate_image
       image = Image.find(params[:image_id])
@@ -96,6 +114,7 @@ module Api
         last_page: image_data[:last_page],
         prev_page: image_data[:prev_page],
         next_page: image_data[:next_page],
+        ai_fact: image_data[:ai_fact],
         status: 'success'
       }
     end
