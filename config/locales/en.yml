@@ -77,6 +77,22 @@ en:
       created: "Image was successfully created"
       updated: "Image was successfully updated"
       destroyed: "Image was successfully destroyed"
+    show:
+      theme: "Theme"
+      average: "Average rating"
+      ratings_count: "Ratings count"
+      no_theme: "—"
+      no_average: "—"
+      edit: "Edit"
+      back: "Back to list"
+      facts_title: "Interesting facts"
+      facts_hint: "A short story about this transformation, generated once and stored in the database."
+      facts_button: "Interesting facts"
+      facts_loading: "Generating…"
+    ai_facts:
+      missing_api_key: "Facts service unavailable: OPENAI_API_KEY is not set"
+      empty_response: "The model returned an empty response"
+      generation_failed: "Could not generate text. Please try again later."
   themes:
     index:
       title: "Themes"

@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  alert('<%= j @error %>');
+<% else %>
+  $('#ai-facts-section').html('<%= j render('ai_fact', image: @image) %>');
+<% end %>

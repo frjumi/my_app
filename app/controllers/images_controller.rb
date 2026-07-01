@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: %i[show edit update destroy]
+  before_action :set_image, only: %i[show edit update destroy generate_ai_fact]
 
   # GET /images
   def index
@@ -8,6 +8,15 @@ class ImagesController < ApplicationController
   end
 
   def show
+  end
+
+  # POST /images/:id/generate_ai_fact — один раз генерирует текст через OmniAI, далее из БД
+  def generate_ai_fact
+    @error = nil
+    AiFactsService.call(@image)
+    @image.reload
+  rescue AiFactsService::Error => e
+    @error = e.message
   end
 
   def new

@@ -510,6 +510,46 @@ footer {
   border-radius: 4px;
 }
 
+.image-show {
+  .image-show-card {
+    margin-top: 1rem;
+    padding: 1.5rem;
+  }
+
+  .image-show-preview {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .image-show-actions {
+    margin-top: 1.5rem;
+  }
+
+  .ai-facts-block {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .ai-facts-hint {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  .ai-fact-text {
+    line-height: 1.6;
+    font-size: 15px;
+    margin-bottom: 0;
+    white-space: pre-wrap;
+  }
+}
+
 // Адаптивность
 @media (max-width: 768px) {
   .work-page .image-viewer {

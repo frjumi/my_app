@@ -25,6 +25,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activerecord-reset-pk-sequence'
 gem 'active_model_serializers'
 
+# LLM: интересные факты о превращениях Winx (OmniAI + OpenAI)
+gem 'omniai'
+gem 'omniai-openai'
+
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

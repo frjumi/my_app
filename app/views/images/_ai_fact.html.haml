@@ -1,0 +1,13 @@
+.ai-facts-block
+  %h3= t('images.show.facts_title')
+  - if image.ai_fact.present?
+    %p.ai-fact-text= image.ai_fact
+  - else
+    %p.ai-facts-hint= t('images.show.facts_hint')
+    = button_to t('images.show.facts_button'),
+      generate_ai_fact_image_path(image),
+      method: :post,
+      remote: true,
+      class: 'btn btn-info',
+      id: 'ai-facts-button',
+      data: { disable_with: t('images.show.facts_loading') }

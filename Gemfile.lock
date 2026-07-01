@@ -137,10 +137,12 @@ GEM
     debug_inspector (1.2.0)
     diff-lcs (1.6.2)
     docile (1.4.1)
+    domain_name (0.6.20240107)
     drb (2.2.3)
     erb (6.0.4)
     erubi (1.13.1)
     erubis (2.7.0)
+    event_stream_parser (1.0.0)
     execjs (2.10.1)
     factory_bot (6.6.0)
       activesupport (>= 6.1.0)
@@ -173,6 +175,11 @@ GEM
       haml (>= 4.0)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    http (6.0.3)
+      http-cookie (~> 1.0)
+      llhttp (~> 0.6.1)
+    http-cookie (1.1.6)
+      domain_name (~> 0.5)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
@@ -206,6 +213,7 @@ GEM
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
+    llhttp (0.6.2)
     logger (1.7.0)
     loofah (2.25.1)
       crass (~> 1.0.2)
@@ -250,6 +258,18 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.3-x86_64-linux-musl)
       racc (~> 1.4)
+    omniai (3.7.1)
+      base64
+      event_stream_parser
+      http (>= 5, < 7)
+      logger
+      zeitwerk
+    omniai-openai (3.1.2)
+      event_stream_parser
+      omniai (~> 3.0)
+      openssl
+      zeitwerk
+    openssl (4.0.2)
     parallel (2.1.0)
     parser (3.3.11.1)
       ast (~> 2.4.1)
@@ -458,6 +478,8 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   kaminari
+  omniai
+  omniai-openai
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)

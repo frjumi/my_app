@@ -77,6 +77,22 @@ ru:
       created: "Изображение создано"
       updated: "Изображение обновлено"
       destroyed: "Изображение удалено"
+    show:
+      theme: "Тема"
+      average: "Средняя оценка"
+      ratings_count: "Количество оценок"
+      no_theme: "—"
+      no_average: "—"
+      edit: "Редактировать"
+      back: "К списку"
+      facts_title: "Интересные факты"
+      facts_hint: "Краткий рассказ о превращении, сгенерированный один раз и сохранённый в базе."
+      facts_button: "Интересные факты"
+      facts_loading: "Генерация…"
+    ai_facts:
+      missing_api_key: "Сервис фактов недоступен: не задан OPENAI_API_KEY"
+      empty_response: "Модель вернула пустой ответ"
+      generation_failed: "Не удалось сгенерировать текст. Попробуйте позже."
   themes:
     index:
       title: "Темы"

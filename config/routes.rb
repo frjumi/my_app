@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     resources :themes
     resources :users
     resources :values
-    resources :images
+    resources :images do
+      member do
+        post :generate_ai_fact
+      end
+    end
 
     # Сессии
     get 'signup', to: 'users#new'

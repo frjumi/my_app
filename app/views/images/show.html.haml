@@ -1,18 +1,27 @@
-%p#notice= notice
+.image-show
+  %p#notice= notice
+  %p#alert= alert if alert.present?
 
-%p
-  %b Name:
-  = @image.name
-%p
-  %b File:
-  = @image.file
-%p
-  %b Ave value:
-  = @image.ave_value
-%p
-  %b Theme:
-  = @image.theme_id
+  .panel-card.image-show-card
+    .row
+      .col-md-5
+        = image_tag asset_path("pictures/#{@image.file}"),
+          alt: @image.name,
+          class: 'image-show-preview',
+          onerror: "this.src='#{asset_path("pictures/#{WorkImage::PLACEHOLDER_FILE}")}'"
+      .col-md-7
+        %h1= @image.name
+        %dl.dl-horizontal
+          %dt= t('.theme')
+          %dd= @image.theme&.name || t('.no_theme')
+          %dt= t('.average')
+          %dd= @image.ave_value.present? && @image.ave_value.positive? ? @image.ave_value : t('.no_average')
+          %dt= t('.ratings_count')
+          %dd= @image.values.count
 
-= link_to 'Edit', edit_image_path(@image)
-\|
-= link_to 'Back', images_path
+    #ai-facts-section
+      = render 'ai_fact', image: @image
+
+    .image-show-actions
+      = link_to t('.edit'), edit_image_path(@image), class: 'btn btn-default'
+      = link_to t('.back'), images_path, class: 'btn btn-link'
